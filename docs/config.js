@@ -64,7 +64,7 @@ var respecConfig = {
     // EO: Einde ondersteuning, verouderde versie, vervangen door nieuwe versie
     // TG: Versie teruggetrokken
     // BASIS, GN-BASIS: 'geen status'
-    specStatus: "WW",
+    specStatus: "WV",
     postProcess:[changeSOTD],       //-- Deze roept de postprocessor aan
   
     // SpecType currently supported
@@ -86,12 +86,12 @@ var respecConfig = {
     // format: "markdown",                
   
     // The specification's "short name", which is the name used in NL_Respec URLs
-    shortName: "contractspecificaties",
+    shortName: "areaalgegevens-uitwisselen",
   
     // A YYYY-MM-DD date. The publication date of the present document. 
     // Als er geen publishDate is opgegeven, genereert ReSpec de dataum o.b.v. de laatste wijzigingen
     // Belangrijk: als publishDate niet opgegeven is, wordt bij de link "Laatst gepubliceerde versie" "geen" gezet. Anders wordt een link opgebouwd voor de laatste versie, met het formaat:
-    publishDate: "2021-07-27",
+    publishDate: "2021-12-10",
   
     // A YYYY-MM-DD date. When there is a previous release of a given specification, (W3C)
     // previousPublishDate: "2021-07-27",
@@ -104,7 +104,7 @@ var respecConfig = {
     //prevRecURI: "https://www.w3.org/TR/2014/example-20140327/",
   
     // license can be one of the following: cc0, cc-by or cc-by-nd((default)) (see https://github.com/Geonovum/respec/wiki/license )
-    license: 'cc-by-nd',
+    license: 'cc0',
   
     // Overrides the standard logo with one or more other logos. (see https://respec.org/docs/#logos)
     // Geef een lege array op als er geen <default> logo moet staan
@@ -126,13 +126,18 @@ var respecConfig = {
     // this can be simple or more elaborated
     authors:  [
         {
-          name:       "Rik",
-          company:    "CROW",
-          companyURL: "https://www.crow.nl"
+          name:       "Lucas Verhelst",
+          company:    "BIM-Connected",
+          companyURL: "https://www.bim-connected.com/"
+        },
+        {
+          name:       "Rakesh Kalpoe",
+          company:    "Arcadis",
+          companyURL: "https://www.arcadis.com/"
         },
       ],
     // The github option allows you associate your specification with a repository on GitHub.
-    github: "https://github.com/bimloket/contractspecificaties",
+    github: "https://github.com/bimloket/areaalgegevens-uitwisselen",
   
     // The URL of your test suite, gets included in the specification's headers.
     // testSuiteURI: "https://portaal.digikoppeling.nl/CV/home.html",
