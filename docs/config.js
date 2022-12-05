@@ -249,5 +249,18 @@ var respecConfig = {
 
   // If you need to include a one-off reference that isn't in the SpecRef database or
   // if you need to override an existing reference with specific content, then you can use this configuration option.
-  localBiblio: {},
+  localBiblio: {
+  ISO19650_2: {
+    title: "ISO 19650-2:2018 Organization and digitization of information about buildings and civil engineering works, including building information modelling (BIM) — Information management using building information modelling — Part 2: Delivery phase of the assets",
+    href: "https://www.iso.org/standard/68080.html",
+    status: "Actueel",
+    publisher: "ISO",
+  },
+  RACI: {
+    title: "ISO RACI-model",
+    href: "https://nl.wikipedia.org/wiki/RACI-model",
+    status: "Actueel",
+    publisher: "Wikipedia",
+  },
+  },
 };

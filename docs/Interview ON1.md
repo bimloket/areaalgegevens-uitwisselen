@@ -31,7 +31,7 @@ Aanwezig:
 
 - KP-3 Onduidelijkheid in welke informatie op welke momenten moest worden geleverd. 
   - Bij de uitvraag was geen ILS en OTL geleverd. Als de opdrachtnemer dit in deze fase al had gehad dan was beter bekend geweest wat wanneer geleverd moest worden.
-  - 
+
 **Welke behoefte is er voor landelijke afspraken?**
 
 - De aannemer suggereert om een (lichte) vorm van o.a. een BIM-uitvoeringsplan contractueel uit te vragen. Hierdoor wordt de interne organisatie geforceerd om in een vroeg stadium met het juiste team de voorbereidende stappen te treffen (mocht het project worden gegund). Ook weet de opdrachtgever beter wat te verwachten na gunning.
