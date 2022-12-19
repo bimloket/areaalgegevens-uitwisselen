@@ -21,15 +21,15 @@ Aanwezig:
 
 **Welke knelpunten zijn geconstateerd in de projecten?**
 
-- KP-2 Er werd geen BIM-uitvoeringsplan, Mobilisatieplan en Risicoanalyse uitgevraagd in de projecten. 
+- Er werd geen BIM-uitvoeringsplan, Mobilisatieplan en Risicoanalyse uitgevraagd in de projecten. <a>KP-2</a>
   - OG heeft geen eisen voor o.a. een BIM-uitvoeringsplan en weet niet hoe een dergelijk plan (van de opdrachtnemer) gevalideerd moet worden. Er is wel een ILS beschikbaar die de inhoud van de levering voorschrijft, maar deze schiet nog tekort ten aanzien van het proces om (gezamenlijk) tot een valide levering te komen. 
   - OG mist hierdoor o.a. een planning met wat wanneer geleverd wordt in de uitvragen die zij nu doet. Dit leidt tot onverwacht werk in de organisatie, zoals de verwerking of beoordeling van grote hoeveelheden data en documenten.
-- KP-4 Er waren weinig mogelijkheden om invloed uit te oefenen op de informatiestroom vanuit opdrachtnemer. De invulling van het informatiemanagement werd hierdoor afhankelijk van de waarde die de hoofdaannemer hier aan hechtte. 
+- Er waren weinig mogelijkheden om invloed uit te oefenen op de informatiestroom vanuit opdrachtnemer. De invulling van het informatiemanagement werd hierdoor afhankelijk van de waarde die de hoofdaannemer hier aan hechtte. <a>KP-4</a>
   - Het was aan de aannemer wanneer en hoe de leveringen gedaan werden. Dat ging bij het project P1 goed, bij P2 en P3 ging het minder goed.
   - Bij het project P3 kwam de levering pas helemaal aan het eind, de documenten zijn later los geleverd. Aan het eind van een project zijn betrokkenen vaak weer naar andere projecten toe en blijkt het lastig om data nog te laten verbeteren.
   - OG ziet dat goed informatiemanagement steeds belangrijker wordt in de projecten en wil hier sterker de meerwaarde van laten zien aan de aannemers.
   - Het uitvragen van BIM-uitvoeringsplannen is lastig in RAW-projecten, omdat het lastig te vatten is in concrete EMVI-criteria met bonus malus. Achteraf kan vaak pas beoordeeld worden of het plan goed uitgevoerd is.
-- KP-5 Het opstellen, het communiceren en valideren van een eenduidige mappenstructuur voor documentleveringen was lastig. Er wordt een mappenstructuur vereist, waarin documenten per asset, per soort worden aangeleverd. 
+- Het opstellen, het communiceren en valideren van een eenduidige mappenstructuur voor documentleveringen was lastig. Er wordt een mappenstructuur vereist, waarin documenten per asset, per soort worden aangeleverd. <a>KP-5</a>
   - OG heeft de mappenstructuur intern met haar beheerders opgezet. OG krijgt in de praktijk veel vragen over welk document in welke categorie moet vallen. Dit is lastig volledig te standaardiseren omdat verschillende organisaties hun eigen documentsoorten gebruiken. Er zijn hoogover standaarden beschikbaar zoals de NEN 2084, maar de structuur van OG is veel gedetailleerder dan dat.
 
 **Welke behoefte is er voor landelijke afspraken?**
@@ -42,8 +42,8 @@ Aanwezig:
 
 **Welke knelpunten zijn geconstateerd in de projecten?**
 
-- KP-8 Het gebruik van de interne Dataroom wordt project afhankelijk gebruikt. 
-- KP-9 OG had weinig inzicht in de organisatie en het proces om tot een levering te komen. Hierdoor kon het niet beoordelen of de aannemer in staat was om de informatie te leveren.
+- Het gebruik van de interne Dataroom wordt project afhankelijk gebruikt. <a>KP-8</a>
+- OG had weinig inzicht in de organisatie en het proces om tot een levering te komen. Hierdoor kon het niet beoordelen of de aannemer in staat was om de informatie te leveren. <a>KP-9</a>
   - De meeste stappen na gunning worden door het opleverteam uitgevoerd. OG heeft geen zicht op of en hoe dit gebeurt.
 
 **Welke behoefte is er voor landelijke afspraken?**
@@ -54,16 +54,16 @@ Aanwezig:
 
 **Welke knelpunten zijn geconstateerd in de projecten?**
 
-- KP-10 Het laten ontwikkelen van een interne Dataroom was een lang en kostbaar proces. OG geeft aan dat dat het grootste knelpunt is geweest om de belofte achter COINS waar te kunnen maken binnen de organisatie.
-  - Men heeft overwogen om de software van de CDE openbaar te maken, maar zag risico’s in de verantwoordelijkheid die daar bij zou kunnen komen kijken. 
-  - De CDE is wél succesvol getest met as-is dataleveringen uit de projecten. 
+- Het laten ontwikkelen van een interne Dataroom was een lang en kostbaar proces. OG geeft aan dat dat het grootste knelpunt is geweest om de belofte achter COINS waar te kunnen maken binnen de organisatie. <a>KP-10</a>
+  - Men heeft overwogen om de software van het CDE openbaar te maken, maar zag risico’s in de verantwoordelijkheid die daar bij zou kunnen komen kijken. 
+  - Het CDE is wél succesvol getest met as-is dataleveringen uit de projecten. 
 
-- KP-11 De opdrachtnemer was afhankelijk van OG voor de validatie van hun informatieleveringen.
+- De opdrachtnemer was afhankelijk van OG voor de validatie van hun informatieleveringen. <a>KP-11</a>
   - Bij de onderzochte projecten verliep het opstarten van de uitwisseling moeizaam. Men loopt daarbij tegen technische problemen aan. In het geval van project P3 werkt momenteel nog niet alles. Daar werd uit Excel-sheets en CAD- tekeningen een COINS container gegenereerd: Echter, de hoofdaannemer kon niet beoordelen of deze container voldeed aan de ILS. Voor feedback waren zij afhankelijk van de opdrachtgever, wat veel doorlooptijd en capaciteit kostte. 
   - Het opleverteam zou de eigen leveringen moeten kunnen controleren met directe feedback.
   - OG vindt dat voor het gebruik van een uitwisselingsstandaard geen specialistische IT kennis (bijv. COINS) nodig zou moeten zijn.
 
-- KP-12 OG was afhankelijk van externe medewerkers. Er was intern onvoldoende technische kennis over (o.a. COINS, RDF).
+- OG was afhankelijk van externe medewerkers. Er was intern onvoldoende technische kennis over (o.a. COINS, RDF). <a>KP-12</a>
   - OG gaat inzetten op lichte, geo gebaseerde formaten, omdat het daarmee gemakkelijker wordt voor GIS specialisten om aan te haken. Ze ziet dat als een kleine stap terug, omdat er dan geen link meer is met de documenten die geleverd gaan worden in toekomstige projecten.
 
 **Welke behoefte is er voor landelijke afspraken?**
@@ -74,14 +74,14 @@ Aanwezig:
 
 **Welke knelpunten zijn geconstateerd in de projecten?**
 
-- KP-32 De geleverde informatie werd onvoldoende gevalideerd na ontvangst. 
+- De geleverde informatie werd onvoldoende gevalideerd na ontvangst. <a>KP-32</a>
   - Het gebrek aan specifieke informatie-eisen maakte het valideren van de levering vrijwel onmogelijk. 
   - De BIM specialisten van OG kijken de levering naar eer en geweten na en halen er zo veel mogelijk fouten uit. Er wordt door hen niet gekeken of de geleverde informatie klopt met wat er buiten gebouwd is. 
   - Bij het project P1  was eens in de maand een overleg in de beginfase. Dat werkte goed. 
   - Bij het project P2 liep de communicatie niet zo lekker, maar toen er ineens een levering kwam bleek die best goed.
-- KP-33 Bij de validatie van de dataset was er vaak geen assetmanager betrokken, terwijl die juist belang heeft bij goede data. 
+- Bij de validatie van de dataset was er vaak geen assetmanager betrokken, terwijl die juist belang heeft bij goede data. <a>KP-33</a>
   - Bij de validatie van de geleverde informatie zou de toezichthouder een rol moeten krijgen vanuit de projectorganisatie. Die persoon controleert binnen een project ook of er volgens de eisen en volgens het ontwerp gebouwd wordt.
-  - 
+
 **Welke behoefte is er voor landelijke afspraken?**
 
 - N.v.t.
