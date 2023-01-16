@@ -15,7 +15,7 @@ var respecConfig = {
   // format: "markdown",
 
   // The specification's "short name", which is the name used in NL_Respec URLs
-  shortName: "bimloket/areaalgegevens-uitwisselen",
+  shortName: "areaalgegevens-uitwisselen/",
 
   // license can be one of the following: cc0, cc-by or cc-by-nd((default)) (see https://github.com/Geonovum/respec/wiki/license )
   license: "cc0",
