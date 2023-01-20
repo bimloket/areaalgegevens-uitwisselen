@@ -4,5 +4,6 @@ BIM Loket werkt samen met gebruikers van BIM standaarden aan specifieke vragen r
 
 Opdrachtgevers en assetmanagers hebben de behoefte om actuele gegevens over het areaal (of bouwwerk) te ontvangen uit bouw- en onderhoudsprojecten die uitgevoerd worden door een opdrachtnemer of serviceprovider. Opdrachtnemers hebben dezelfde behoefte bij start van het project, informatie over het areaal te ontvangen van opdrachtgevers. Hoe deel je modellen of kaarten over het bouwwerk, hoe kun je aan de objecten op een kaart het beste extra informatie of documenten toevoegen? Wissel je links uit naar een gedeelde bron van informatie, of heb je elk een eigen bouwwerkmodel, documentmanagementsysteem? Waarom gebruikt de ene partij IFC en een andere COINS 2.0 als uitwisselformaat?
 
-Use case Gelderland: https://bimloket.github.io/areaalgegevens-uitwisselen/
-Reviewversie: https://bimloket.github.io/areaalgegevens-uitwisselen/IR20232001
+Use case Gelderland: https://bimloket.github.io/areaalgegevens-uitwisselen/usecasegelderland/
+<br>
+Reviewversie: https://bimloket.github.io/areaalgegevens-uitwisselen/usecasegelderland/IR20232001/
