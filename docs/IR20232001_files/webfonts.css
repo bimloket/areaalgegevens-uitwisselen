@@ -1,0 +1,118 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3306211, 2016-11-09T08:18:54-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: MuseoSans-100 by exljbris
+ * URL: http://www.myfonts.com/fonts/exljbris/museo-sans/100/
+ * 
+ * Webfont: MuseoSans-700 by exljbris
+ * URL: http://www.myfonts.com/fonts/exljbris/museo-sans/700/
+ * 
+ * Webfont: MuseoSans-900 by exljbris
+ * URL: http://www.myfonts.com/fonts/exljbris/museo-sans/900/
+ * 
+ * Webfont: MuseoSans-300 by exljbris
+ * URL: http://www.myfonts.com/fonts/exljbris/museo-sans/300/
+ * 
+ * Webfont: MuseoSans-500 by exljbris
+ * URL: http://www.myfonts.com/fonts/exljbris/museo-sans/500/
+ * 
+ * Webfont: MuseoSans-300Italic by exljbris
+ * URL: http://www.myfonts.com/fonts/exljbris/museo-sans/300-italic/
+ * 
+ * Webfont: MuseoSans-700Italic by exljbris
+ * URL: http://www.myfonts.com/fonts/exljbris/museo-sans/700-italic/
+ * 
+ * Webfont: MuseoSans-500Italic by exljbris
+ * URL: http://www.myfonts.com/fonts/exljbris/museo-sans/500-italic/
+ * 
+ * Webfont: MuseoSans-900Italic by exljbris
+ * URL: http://www.myfonts.com/fonts/exljbris/museo-sans/900-italic/
+ * 
+ * Webfont: MuseoSans-100Italic by exljbris
+ * URL: http://www.myfonts.com/fonts/exljbris/museo-sans/100-italic/
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=329336
+ * Licensed pageviews: 500,000
+ * Webfonts copyright: Copyright (c) 2009 by Jos Buivenga. All rights reserved.
+ * 
+ * © 2016 MyFonts Inc
+*/
+
+/* @import must be at top of file, otherwise CSS will not work */
+/* Regular */
+@import url(//hello.myfonts.net/count/329336);
+
+/* === Museo Sans ===================== */
+
+@font-face {
+  font-family: "Museo Sans";
+  src: url("museo/329336_100.woff2") format("woff2");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Museo Sans";
+  src: url("museo/329336_100Italic.woff2") format("woff2");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Museo Sans";
+  src: url("museo/329336_300.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Museo Sans";
+  src: url("museo/329336_300Italic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Museo Sans";
+  src: url("museo/329336_500.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Museo Sans";
+  src: url("museo/329336_500Italic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Museo Sans";
+  src: url("museo/329336_700.woff2") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Museo Sans";
+  src: url("museo/329336_700Italic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Museo Sans";
+  src: url("museo/329336_900.woff2") format("woff2");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Museo Sans";
+  src: url("museo/329336_900Italic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+}
