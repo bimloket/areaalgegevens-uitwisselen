@@ -6,4 +6,4 @@ Opdrachtgevers en assetmanagers hebben de behoefte om actuele gegevens over het 
 
 Use case Gelderland: https://bimloket.github.io/areaalgegevens-uitwisselen/usecasegelderland/
 <br>
-Reviewversie: https://bimloket.github.io/areaalgegevens-uitwisselen/usecasegelderland/usecasegelderland@IR-20232301/
+Reviewversie: https://bimloket.github.io/areaalgegevens-uitwisselen/usecasegelderland/v/usecasegelderland@IR-20232301/
