@@ -1,7 +1,7 @@
 var respecConfig = {
   // this template doesn't use all possible config parameters
   // see https://github.com/stichting-crow/respec/wiki for all options
-  specStatus: "WV",
+  specStatus: "DRAFT",
   postProcess: [], //-- Deze roept de postprocessor aan
 
 
