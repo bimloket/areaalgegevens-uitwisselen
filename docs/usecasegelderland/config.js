@@ -4,7 +4,6 @@ var respecConfig = {
   specStatus: "IR",
   postProcess: [], //-- Deze roept de postprocessor aan
 
-  hypothesisComments: "true",
   reviewDateEnd: "2023-03-01",
 
   specType: "handreiking",
