@@ -1,0 +1,2583 @@
+<!DOCTYPE html><html lang="nl"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 32.2.3">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:MuseoSans,"Museo Sans",Museo,sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+<link rel="stylesheet" href="https://docs.crow.nl/webfonts/webfonts.css">
+<link rel="stylesheet" href="https://docs.crow.nl/respec-design/stichting-crow/base.min.css">
+<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://docs.crow.nl/respec-design/stichting-crow/dark.min.css">
+    
+<style type="text/css">
+
+      tr.hoofdstap {  background-color: #c0c0c0 !important; font-weight: bold;}
+      tr.markering { background-color: #FFD966 !important; }
+      
+    
+</style>
+    
+    
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+    
+    
+<title>Areaalgegevens uitwisselen: analyse van drie infraprojecten</title>
+    
+    
+    
+  
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000;color:var(--toclink-text)}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<link rel="icon" href="https://www.bimloket.nl/favicon.png">
+<style>
+ul.index{columns:30ch;column-gap:1.5em}
+ul.index li{list-style:inherit}
+ul.index li span{color:inherit;cursor:pointer;white-space:normal}
+#index-defined-here ul.index li{font-size:.9rem}
+ul.index code{color:inherit}
+#index-defined-here .print-only{display:none}
+@media print{
+#index-defined-here .print-only{display:initial}
+}
+</style>
+<meta name="description" content="Dit document is het resultaat van een analyse van de gegevensuitwisseling bij drie projecten. Uit interviews met de opdrachtgever en de aannemers komen knelpunten en behoeften naar voren. De belangrijkste aanbevelingen zijn om het ISO19650 proces nog verder te implementeren, de informatie automatisch controleerbaar te maken en extra kennis te verwerven over de onderliggende technologieën.">
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "specStatus": "IR",
+  "postProcess": [],
+  "hypothesisComments": "true",
+  "reviewDateEnd": "2023-03-01",
+  "specType": "handreiking",
+  "imprint": "bimloket",
+  "shortName": "areaalgegevens-uitwisselen/",
+  "license": "cc0",
+  "editors": [
+    {
+      "name": "Elisabeth Klören",
+      "company": "BIM loket",
+      "companyURL": "https://www.bimloket.nl"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Lucas Verhelst",
+      "company": "BIM-Connected",
+      "companyURL": "https://www.bim-connected.com/"
+    },
+    {
+      "name": "Rakesh Kalpoe",
+      "company": "Arcadis",
+      "companyURL": "https://www.arcadis.com/"
+    }
+  ],
+  "github": "https://github.com/bimloket/areaalgegevens-uitwisselen",
+  "localBiblio": {
+    "ISO19650_2": {
+      "title": "ISO 19650-2:2018 Organization and digitization of information about buildings and civil engineering works, including building information modelling (BIM) — Information management using building information modelling — Part 2: Delivery phase of the assets",
+      "href": "https://www.iso.org/standard/68080.html",
+      "status": "Actueel",
+      "publisher": "ISO",
+      "id": "iso19650_2"
+    },
+    "RACI": {
+      "title": "ISO RACI-model",
+      "href": "https://nl.wikipedia.org/wiki/RACI-model",
+      "status": "Actueel",
+      "publisher": "Wikipedia",
+      "id": "raci"
+    }
+  },
+  "publishISODate": "2023-01-20T00:00:00.000Z",
+  "generatedSubtitle": "BIM Loket handreiking, referentieversie 20 januari 2023"
+}</script></head>
+
+  <body class="h-entry" style="background-image: url(&quot;https://docs.crow.nl/respec-design/stichting-crow/status-nl/IR.svg&quot;);"><div class="head">
+    <p class="logos"><a class="logo" href="https://bimloket.nl"><img crossorigin="" alt="BIM Loket" height="75" src="https://docs.crow.nl/respec-design/stichting-crow/logo/bimloket.jpg" width="150">
+  </a></p>
+    <h1 id="title" class="title">Areaalgegevens uitwisselen: analyse van drie infraprojecten</h1> 
+    <p id="w3c-state">BIM Loket handreiking,
+  referentieversie <time style="white-space: pre;" class="dt-published" datetime="2023-01-20">20 januari 2023</time></p>
+    <details open="">
+      <summary>Meer informatie over dit document</summary>
+      <dl>
+        
+        
+        
+        <dt>Laatste werkversie:</dt><dd><a href="https://bimloket.github.io/areaalgegevens-uitwisselen/">https://bimloket.github.io/areaalgegevens-uitwisselen/</a></dd>
+        <dt>Geschiedenis:</dt><dd>
+                    <a href="https://github.com/bimloket/areaalgegevens-uitwisselen/commits/">Wijzigingsgeschiedenis</a>
+                  </dd>
+        
+        
+        
+        <dt>Redacteur:</dt><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Elisabeth Klören</span> (<a class="p-org org h-org" href="https://www.bimloket.nl">BIM loket</a>)
+  </dd>
+        
+        <dt>Auteurs:</dt><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Lucas Verhelst</span> (<a class="p-org org h-org" href="https://www.bim-connected.com/">BIM-Connected</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Rakesh Kalpoe</span> (<a class="p-org org h-org" href="https://www.arcadis.com/">Arcadis</a>)
+  </dd>
+        <dt>Feedback:</dt><dd>
+        <a href="https://github.com/bimloket/areaalgegevens-uitwisselen/">GitHub bimloket/areaalgegevens-uitwisselen</a>
+        (<a href="https://github.com/bimloket/areaalgegevens-uitwisselen/pulls/">wijzigingsverzoeken</a>,
+        <a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/new/choose">nieuw issue</a>,
+        <a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/">openstaande issues</a>)
+      </dd><dd id="annotation-service-placeholder">
+        <button type="button" data-load-annotation-service="">
+          Laad annotaties
+        </button>
+        <span><small>Annotaties door <a href="https://web.hypothes.is">Hypothes.is</a> (<a href="https://web.hypothes.is/privacy">privacybeleid</a>).</small></span>
+      </dd><dd hidden="" id="annotation-service-loaded">
+        <span data-hypothesis-annotation-count="">...</span> annotatie(s) met <em>Hypothes.is</em>
+        <button type="button" data-hypothesis-trigger="">
+          Toon annotatiebalk
+        </button>
+        <button type="button" data-unload-annotation-service="">
+          Verberg
+        </button>
+      </dd>
+        
+        
+      </dl>
+    </details>
+    
+    <p class="copyright">
+    Copyright ©
+    2023
+    
+    <a href="https://bimloket.nl">BIM Loket</a>.
+    BIM Loket
+    <a href="https://www.bimloket.nl/p/21/Disclaimer">disclaimer</a>
+      van toepassing en gedistribueerd onder
+      <a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/" title="Creative Commons 0 Publiekdomeinverklaring">CC0</a>
+  </p>
+    <hr title="Separator for header">
+  </div>
+
+    <section id="abstract" class="introductory"><h2>Samenvatting</h2>
+      <p>Dit document is het resultaat van een analyse van de gegevensuitwisseling bij drie projecten. Uit interviews met de opdrachtgever en de aannemers komen knelpunten en behoeften naar voren. De belangrijkste aanbevelingen zijn om het ISO19650 proces nog verder te implementeren, de informatie automatisch controleerbaar te maken en extra kennis te verwerven over de onderliggende technologieën.</p>
+    </section>
+
+    <section id="sotd" class="introductory"><h2>Status van dit document</h2><p><em>Deze paragraaf
+      beschrijft de status van dit document ten tijde van publicatie. Het is
+      mogelijk dat er actuelere versies van dit document bestaan. Bekijk de
+      lijst van BIM Loket technische standaarden op
+      <a href="https://https://bimloket.nl/">bimloket.nl</a>
+      en alle BIM Loket-publicaties via
+      <a href="https://https://bimloket.nl">bimloket.nl</a>.</em></p><p>
+      Dit is een reviewversie en is nog niet vastgesteld.
+      Een publicatie als referentieversie
+          impliceert geen onderschrijven door BIM Loket.
+    </p><p>
+            Belanghebbenden, geïnteresseerde partijen en anderen worden
+            uitgenodigd dit document te reviewen en hun commentaar in te zenden
+            vóór 1 maart 2023. Zowel inhoudelijk als
+            technisch commentaar als commentaar betreffende de
+            implementeerbaarheid is welkom.
+          </p><p>
+      <a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/">GitHub Issues</a> wordt gebruikt voor de discussie
+      van dit document. Eén issue per onderwerp vereenvoudigt de verwerking.
+    </p><p>
+      Reviewcommentaar mag ook achtergelaten worden als
+      <em>Hypothes.is</em> annotaties. Gebruik het publieke kanaal voor je
+      commentaar.
+    </p></section>
+
+    
+    <section id="introductie"><div class="header-wrapper"><h2 id="x1-introductie"><bdi class="secno">1. </bdi>Introductie</h2><a class="self-link" href="#introductie" aria-label="Permalink for Section 1."></a></div>
+<p>Dagelijks worden grote hoeveelheden data uitgewisseld over onze gebouwde omgeving. Dit gebeurt zowel tijdens bouw-, en renovatieprojecten als bij het uitvoeren van onderhoud. De toenemende datavolumes vragen om een nieuwe aanpak voor deze uitwisseling om verlies en misinterpretatie van informatie tegen te gaan en de kwaliteit hoog te houden.</p>
+<p>Dit document is het resultaat van een onderzoek naar de informatieuitwisseling bij drie projecten. Daarbij zijn het doorlopen proces, de knelpunten en behoefte voor ontwikkeling in kaart worden gebracht. In de interviews en de analyse zijn de perspectieven van de opdrachtgever en de opdrachtnemer meegenomen.</p>
+<p>Het onderzoek is uitgevoerd door in opdracht van de gebruikerscommissie COINS - CB-NL van het BIM Loket, met financiering de Provincie Gelderland.</p>
+<section id="methode"><div class="header-wrapper"><h3 id="x1-1-methode"><bdi class="secno">1.1 </bdi>Methode</h3><a class="self-link" href="#methode" aria-label="Permalink for Section 1.1"></a></div>
+<p>Om het proces, de knlepunten en de behoefte voor verdere standaardisatie en automatisering in kaart te brengen zijn de volgende stappen doorlopen:</p>
+<ol>
+<li>Op basis van het proces dat wordt beschreven in  [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso19650_2" title="ISO 19650-2:2018 Organization and digitization of information about buildings and civil engineering works, including building information modelling (BIM) — Information management using building information modelling — Part 2: Delivery phase of the assets">ISO19650_2</a></cite>] deel 2 is een [<cite><a class="bibref" data-link-type="biblio" href="#bib-raci" title="ISO RACI-model">RACI</a></cite>] schema opgesteld. Daarbij zijn de omschrijvingen van de stappen leesbaarder gemaakt, zodat het schema in te vullen is zonder de terminologie van de norm te kennen. Het resulterende template is hier te downloaden: <a href="../Bijlagen/Vragenlijst_ISO19650-2_RASCI.ods">Vragenlijst_ISO19650-2_RASCI.ods</a></li>
+<li>Met de <abbr title="Opdrachtgever">OG</abbr> en de drie <abbr title="Opdrachtnemer">ON</abbr>'s zijn interviews gehouden aan de hand van de vooraf ingevulde vragenlijst. De interviews vonden plaats met specialisten die betrokken zijn geweest in de uitwisseling van areaalgegevens tussen <abbr title="Opdrachtgever">OG</abbr> en <abbr title="Opdrachtnemer">ON</abbr> in projecten. De uitgewerkte interviews zijn te vinden in de bijlagen van dit document.</li>
+<li>Na de interviews zijn analyses uitgevoerd om vanuit deze projecten te komen tot een beschrijving van het huidige proces, de knelpunten in dat proces en de behoefte voor standaardisering en automatisering. Bij die analyse zijn ook de bestaande issues op GitHub en het proces dat is opgesteld door CROW [[]] meegenomen.</li>
+</ol>
+</section></section>  
+    <section id="procesbeschrijving"><div class="header-wrapper"><h2 id="x2-procesbeschrijving"><bdi class="secno">2. </bdi>Procesbeschrijving</h2><a class="self-link" href="#procesbeschrijving" aria-label="Permalink for Section 2."></a></div>
+<p>Om een overzicht te krijgen van de verantwoordelijkheden in de verschillende stappen van het proces is een RACI schema opgesteld. uitgangspunt voor het te doorlopen proces is ISO 19650-2. De RACI is ingevuld op basis van de interviews met de betrokkenen. Waar een activiteit niet is uitgevoerd of de verantwoordelijkheden onduidelijk waren is de betreffende rij gemarkeerd en van toelichting voorzien.</p>
+<table>
+  <tbody><tr><th>Stap</th><th>Omschrijving</th><th>RACI</th><th>Commentaar / Toelichting</th></tr>
+  <tr class="hoofdstap"><td><dfn id="dfn-s-1" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-1&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-1</dfn></td><td>Beoordeling en behoefte</td><td></td><td></td></tr>
+  <tr><td><dfn id="dfn-s-1-1" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-1.1&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-1.1</dfn></td><td>Verdelen van uit te voeren informatiemanagementtaken door opdrachtgever.</td><td>Accountable: Opdrachtgever</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-1-2" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-1.2&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-1.2</dfn></td><td>Vaststellen van informatie-eisen voor het maken van belangrijke beslissingen.</td><td>Accountable: Opdrachtgever</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-1-3" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-1.3&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-1.3</dfn></td><td>Vaststellen van mijlpalen voor de informatieleveringen</td><td>Accountable: Opdrachtgever</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-1-4" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-1.4&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-1.4</dfn></td><td>Vaststellen welke informatiestandaarden dienen te worden gebruikt binnen het project.</td><td>Accountable: Opdrachtgever</td><td>Opdrachtgever heeft hier standaard eisen voor die in de projecten worden gebruikt.</td></tr>
+  <tr><td><dfn id="dfn-s-1-5" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-1.5&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-1.5</dfn></td><td>Vaststellen welke methodes en procedures moeten worden gebruikt om informatie voor het project te produceren, leveren en beoordelen.</td><td>Accountable: Opdrachtgever</td><td>Opdrachtgever heeft hier standaard eisen voor die in de projecten worden gebruikt.</td></tr>
+  <tr><td><dfn id="dfn-s-1-6" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-1.6&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-1.6</dfn></td><td>Vaststellen welke informatie beschikbaar wordt gemaakt voor hergebruik door opdrachtnemer.</td><td>Accountable: Opdrachtgever</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-1-7" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-1.7&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-1.7</dfn></td><td>Vaststellen welk CDE gebruikt wordt voor communicatie tussen opdrachtgever en opdrachtnemer.</td><td>Accountable: Opdrachtgever</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-1-8" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-1.8&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-1.8</dfn></td><td>Vaststellen van het informatieprotocol</td><td>Accountable: Opdrachtgever</td><td></td></tr>
+  <tr class="hoofdstap"><td><dfn id="dfn-s-2" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">S-2</dfn></td><td>Uitnodiging tot inschrijving</td><td></td><td></td></tr>
+  <tr><td><dfn id="dfn-s-2-1" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-2.1&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-2.1</dfn></td><td>Vaststellen ILS vanuit de opdrachtgever</td><td>Accountable: Opdrachtgever</td><td>Bij sommige projecten werd de ILS pas na gunning geleverd aan <abbr title="Opdrachtnemer">ON</abbr>.</td></tr>
+  <tr><td><dfn id="dfn-s-2-2" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-2.2&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-2.2</dfn></td><td>Verzamelen informatie die beschikbaar zal worden gemaakt voor opdrachtnemer</td><td>Accountable: Opdrachtgever<br>Responsible: Derde partij</td><td>Dit is vaak onderdeel van het opstellen van de uitvraag. <abbr title="Opdrachtgever">OG</abbr> wordt hier vaak ondersteund door een derde partij.</td></tr>
+  <tr class="markering"><td><dfn id="dfn-s-2-3" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-2.3&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-2.3</dfn></td><td>Vaststellen van eisen voor inschrijving.</td><td>Accountable: Opdrachtgever</td><td>De opdrachtgever vroeg in deze projecten geen BIM-Uitvoeringsplan, Mobilisatieplan of Risicobeoordeling voor de informatielevering uit. De Hoofdaannemer gaf aan vooral aan het BIM-Uitvoeringsplan behoefte te hebben. De andere documenten lijken ook nuttig om knelpunten tijdens de uitvoering te voorkomen.</td></tr>
+  <tr><td><dfn id="dfn-s-2-4" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-2.4&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-2.4</dfn></td><td>Samenstellen informatie voor uitnodiging tot inschrijving.</td><td>Accountable: Opdrachtgever<br>Responsible: Derde partij</td><td></td></tr>
+  <tr class="hoofdstap"><td><dfn id="dfn-s-3" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">S-3</dfn></td><td>Inschrijving</td><td></td><td></td></tr>
+  <tr><td><dfn id="dfn-s-3-1" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-3.1&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-3.1</dfn></td><td>Verdelen van uit te voeren informatiemanagement gerelateerde taken door opdrachtnemer</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr class="markering"><td><dfn id="dfn-s-3-2" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-3.2&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-3.2</dfn></td><td>Opstellen en vaststellen van het BIM-uitvoeringsplan</td><td>Accountable: Hoofdaannemer<br>Consulted: Onderaannemer</td><td>De Hoofdaannemers gaven aan deze en de volgende stappen (tot 3.6) niet uitgevoerd te hebben, omdat dit niet werd uitgevraagd door de opdrachtgever. Hoewel de hoofdaannemer zelf verantwoordelijk is voor dit proces, kunnen knelpunten tijdens de uitvoering of onderschatting van de informatielevering worden voorkomen door deze documenten in het belang van alle partijen expliciet uit te vragen.</td></tr>
+  <tr class="markering"><td><dfn id="dfn-s-3-3" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-3.3&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-3.3</dfn></td><td>Beoordelen of taakgroep in staat zal zijn om informatie te leveren.</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr class="markering"><td><dfn id="dfn-s-3-4" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-3.4&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-3.4</dfn></td><td>Vaststellen dat opdrachtnemer in staat zal zijn om informatie te leveren.</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr class="markering"><td><dfn id="dfn-s-3-5" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-3.5&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-3.5</dfn></td><td>Opstellen mobilisatieplan m.b.t. beheer en productie van informatie.</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr class="markering"><td><dfn id="dfn-s-3-6" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-3.6&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-3.6</dfn></td><td>Opstellen risicoregister m.b.t. informatielevering.</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-3-7" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-3.7&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-3.7</dfn></td><td>Samenstellen van de inschrijving.</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr class="hoofdstap"><td><dfn id="dfn-s-4" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">S-4</dfn></td><td>Gunning</td><td></td><td></td></tr>
+  <tr class="markering"><td><dfn id="dfn-s-4-1" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-4.1&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-4.1</dfn></td><td>Het BIM-uitvoeringsplan bevestigen.</td><td>Accountable: Hoofdaannemer<br>Consulted: Onderaannemer</td><td>Dit plan is in de geanalyseerde projecten niet uitgevraagd en dus ook niet opgesteld, of bevestigd na gunning.</td></tr>
+  <tr><td><dfn id="dfn-s-4-2" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-4.2&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-4.2</dfn></td><td>Verdelen van gedetaileerde verantwoordelijkheden binnen het opleverteam.</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr class="markering"><td><dfn id="dfn-s-4-3" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-4.3&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-4.3</dfn></td><td>Opstellen van de ILS van de hoofdaannemer.</td><td>Accountable: Opdrachtgever</td><td>Uit de interviews bleek niet dat de hoofdaannemers op het raakvlak met hun onderaannemers gebruik hebben gemaakt van een ILS.</td></tr>
+  <tr class="markering"><td><dfn id="dfn-s-4-4" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-4.4&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-4.4</dfn></td><td>Opstellen van BIM-uitvoeringsplannen per taakgroep.</td><td>Accountable: Opdrachtgever<br>Responsible: Onderaannemer</td><td>Uit de interviews bleek niet dat de hoofdaannemers hun onderaannemers gevraagd hebben per taakgroep BIM-Uitvoeringsplannen op te stellen.</td></tr>
+  <tr class="markering"><td><dfn id="dfn-s-4-5" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-4.5&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-4.5</dfn></td><td>Samenstellen en vaststellen van het masterplan voor levering van informatie</td><td>Accountable: Opdrachtgever</td><td>Ook na gunning is geen masterplan opgesteld voor het leveren van informatie</td></tr>
+  <tr class="markering"><td><dfn id="dfn-s-4-6" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-4.6&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-4.6</dfn></td><td>Voltooien gunningsstukken voor de hoofdaannemer</td><td>Accountable: Opdrachtgever</td><td>Met begrekking tot het genereren en leveren van informatie zijn in de geanalyseerde projecten geen stukken opgesteld in deze fase.</td></tr>
+  <tr><td><dfn id="dfn-s-4-7" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-4.7&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-4.7</dfn></td><td>Voltooien contracten voor de onderaannemers</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr class="hoofdstap"><td><dfn id="dfn-s-5" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">S-5</dfn></td><td>Mobilisatie</td><td></td><td></td></tr>
+  <tr><td><dfn id="dfn-s-5-1" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-5.1&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-5.1</dfn></td><td>Middelen mobiliseren o.b.v. mobilisatieplan</td><td>Accountable: Hoofdaannemer<br>Responsible: Onderaannemer</td><td>Vanwege het ontbreken van het mobilisatieplan heeft men dit niet kunnen doen op basis van dat document. De mobilisatie heeft wel plaatsgevonden.</td></tr>
+  <tr><td><dfn id="dfn-s-5-2" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-5.2&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-5.2</dfn></td><td>Informatietechnologie mobiliseren o.b.v. mobilisatieplan</td><td>Accountable: Hoofdaannemer<br>Responsible: Onderaannemer</td><td>Vanwege het ontbreken van het mobilisatieplan heeft men dit niet kunnen doen op basis van dat document. De mobilisatie heeft wel plaatsgevonden.</td></tr>
+  <tr><td><dfn id="dfn-s-5-3" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-5.3&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-5.3</dfn></td><td>Testen van methodes en procedures voor productie van informatie</td><td>Accountable: Hoofdaannemer<br>Responsible: Onderaannemer<br>Consulted: Opdrachtgever</td><td>Bij alle geanalyseerde projecten is op enig moment een test uitgevoerd om de methodes en procedures voor productie en levering van informatie te testen. <br>In enkele gevallen had dit wel eerder gekund, zodat de eerste levering hier geen vertraging op zou oplopen.</td></tr>
+  <tr class="hoofdstap"><td><dfn id="dfn-s-6" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">S-6</dfn></td><td>Productie van informatie door samenwerking</td><td></td><td></td></tr>
+  <tr><td><dfn id="dfn-s-6-1" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-6.1&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-6.1</dfn></td><td>Controleren of informatie beschikbaar is voor elke taakgroep</td><td>Accountable: Hoofdaannemer<br>Responsible: Onderaannemer</td><td>Hoewel dit mogelijk niet als bewuste stap is gedaan, moet het nodig zijn geweest voor elke partij die met informatie van de opdrachtgever heeft gewerkt.</td></tr>
+  <tr><td><dfn id="dfn-s-6-2" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-6.2&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-6.2</dfn></td><td>Genereren informatie van elke taakgroep</td><td>Accountable: Hoofdaannemer<br>Responsible: Onderaannemer</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-6-3" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-6.3&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-6.3</dfn></td><td>Controle informatielevering per taakgroep</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-6-4" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-6.4&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-6.4</dfn></td><td>Beoordelen en goedkeuren informatie in informatielevering per taakgroep</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-6-5" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-6.5&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-6.5</dfn></td><td>Beoordeling van de samengevoegde informatie</td><td>Accountable: Hoofdaannemer<br>Responsible: Onderaannemer</td><td></td></tr>
+  <tr class="hoofdstap"><td><dfn id="dfn-s-7" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">S-7</dfn></td><td>Levering van het informatiemodel</td><td></td><td></td></tr>
+  <tr><td><dfn id="dfn-s-7-1" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-7.1&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-7.1</dfn></td><td>Verzamelen van de informatieleveringen van de taakgroepen t.b.v. levering</td><td>Accountable: Hoofdaannemer<br>Responsible: Onderaannemer</td><td>In de bekeken projecten heeft het samenvoegen van informatie vaak plaatsgevonden met hulp van een gespecialiseerde onderaannemer.</td></tr>
+  <tr><td><dfn id="dfn-s-7-2" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-7.2&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-7.2</dfn></td><td>Beoordelen van informatieleveringen van de taakgroepen</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-7-3" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-7.3&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-7.3</dfn></td><td>Indienen van informatiemodel voor aanvaarding</td><td>Accountable: Hoofdaannemer</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-7-4" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-7.4&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-7.4</dfn></td><td>Beoordelen en accepteren informatiemodel</td><td>Accountable: Opdrachtgever<br>Responsible: Derde partij</td><td>Bij het technisch beoordelen van het informatiemodel heeft de opdrachtgever hulp gehad van een gespecialiseerde derde partij.<br>De inhoudelijke beoordeling is door de opdrachgever belegd bij haar interne specialisten.</td></tr>
+  <tr class="hoofdstap"><td><dfn id="dfn-s-8" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-8&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-8</dfn></td><td>Projectafsluiting</td><td></td><td></td></tr>
+  <tr><td><dfn id="dfn-s-8-1" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-8.1&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-8.1</dfn></td><td>Archiveren projectinformatiemodel</td><td>Accountable: Opdrachtgever</td><td></td></tr>
+  <tr><td><dfn id="dfn-s-8-2" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;S-8.2&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">S-8.2</dfn></td><td>Evalueren en lessen trekken voor toekomstige projecten</td><td>Accountable: Opdrachtgever<br>Consulted: Hoofdaannemer</td><td></td></tr>
+</tbody></table></section> 
+    <section id="knelpuntenanalyse"><div class="header-wrapper"><h2 id="x3-knelpuntenanalyse"><bdi class="secno">3. </bdi>Knelpuntenanalyse</h2><a class="self-link" href="#knelpuntenanalyse" aria-label="Permalink for Section 3."></a></div>
+<p>Uit de interviews kwamen knelpunten naar voren die de het proces van productie en uitwisseling van areaalgegevens in de projecten gehinderd hebben. Daarnaast zijn de issues op Github geanalyseerd om aanvullende knelpunten te ontdekken.</p>
+<section id="knelpunten-uit-interviews"><div class="header-wrapper"><h3 id="x3-1-knelpunten-uit-interviews"><bdi class="secno">3.1 </bdi>Knelpunten uit interviews</h3><a class="self-link" href="#knelpunten-uit-interviews" aria-label="Permalink for Section 3.1"></a></div>
+<p>Hieronder is een overzicht van de knelpunten te zien, met verwijzingen naar de stappen waarin deze voor komen en de aanbevelingen die hiervoor gedaan zijn.</p>
+<table>
+<tbody><tr><th>Knelpunt</th><th>Omschrijving</th><th>Stap</th><th>Aanbeveling</th></tr>
+<tr><td><dfn id="dfn-kp-1" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-1</dfn></td><td>De verplichting om via COINS uit te wisselen viel niet op in de uitvraag</td><td><a href="#dfn-s-3" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-3-1">S-3</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om in ILS specifieke eisen te specificeren.</td></tr>
+<tr><td><dfn id="dfn-kp-2" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-2</dfn></td><td>Er werd geen BIM-uitvoeringsplan, Mobilisatieplan en Risicoanalyse uitgevraagd in de projecten door de opdrachtgever.</td><td><a href="#dfn-s-2" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-2-1">S-2</a>, <a href="#dfn-s-3" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-3-2">S-3</a></td><td>Aanbeveling om in de uitvraag een BIM-uitvoeringsplan, mobilisatieplan en risicoanalyse op het gebied van informatieuitwisseling uit te vragen</td></tr>
+<tr><td><dfn id="dfn-kp-3" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-3</dfn></td><td>Onduidelijkheid in welke informatie op welke momenten moest worden geleverd</td><td><a href="#dfn-s-3" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-3-3">S-3</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om in ILS specifieke eisen te specificeren.<br>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om ILS en OTL al tijdens gunning beschikbaar te maken.</td></tr>
+<tr><td><dfn id="dfn-kp-4" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-4</dfn></td><td>Weinig mogelijkheden om het proces bij te sturen</td><td><a href="#dfn-s-2" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-2-2">S-2</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om in ILS specifieke eisen te specificeren.</td></tr>
+<tr><td><dfn id="dfn-kp-5" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-5</dfn></td><td>Uitvragen en valideren van de mappenstructuur voor fysieke documenten was lastig</td><td><a href="#dfn-s-2" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-2-3">S-2</a></td><td>Aanbeveling aan BIM-Loket om een standaard informatiemodel op te stellen voor documentsoorten<br>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om metadata voor documenten gestructureerd in te winnen in plaats van in mappenstructuur.</td></tr>
+<tr><td><dfn id="dfn-kp-6" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-6</dfn></td><td>Onduidelijkheid in welke informatie moest worden geleverd.</td><td><a href="#dfn-s-3" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-3-4">S-3</a></td><td></td></tr>
+<tr><td><dfn id="dfn-kp-7" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-7</dfn></td><td>Geen levering van bestaande informatie</td><td><a href="#dfn-s-3" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-3-5">S-3</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om vanuit systemen ook bestaande informatie aan te leveren in dezelfde vorm als de verwachte levering van <abbr title="Opdrachtnemer">ON</abbr>.</td></tr>
+<tr><td><dfn id="dfn-kp-8" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-8</dfn></td><td>Geen standaard inzet  van de  interne Dataroom </td><td><a href="#dfn-s-4" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-4-1">S-4</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om de inzet van een interne dataroom te standaardiseren</td></tr>
+<tr><td><dfn id="dfn-kp-9" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-9</dfn></td><td>Vooraf weinig inzicht in het plan om areaalgegevens te leveren</td><td><a href="#dfn-s-4" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-4-2">S-4</a></td><td>Aanbeveling om in de uitvraag een BIM-uitvoeringsplan, mobilisatieplan en risicoanalyse op het gebied van informatieuitwisseling uit te vragen</td></tr>
+<tr><td><dfn id="dfn-kp-10" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-10</dfn></td><td>De ontwikkeling van de interne Dataroom</td><td><a href="#dfn-s-5" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-5-1">S-5</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om de inzet van een interne dataroom te standaardiseren</td></tr>
+<tr><td><dfn id="dfn-kp-11" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-11</dfn></td><td>Opdrachtnemer is afhankelijk opdrachtgever voor validaties op de leveringen</td><td><a href="#dfn-s-5" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-5-2">S-5</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om validatie door <abbr title="Opdrachtnemer">ON</abbr>  op automatische wijze te faciliteren en zo doorlooptijd en kosten te besparen</td></tr>
+<tr><td><dfn id="dfn-kp-12" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-12</dfn></td><td>Opdrachtgever is door gebrek aan interne kennis afhankelijk externen (voor validaties op de leveringen)</td><td><a href="#dfn-s-5" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-5-3">S-5</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om validatie door <abbr title="Opdrachtnemer">ON</abbr>  op automatische wijze te faciliteren en zo doorlooptijd en kosten te besparen</td></tr>
+<tr><td><dfn id="dfn-kp-13" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-13</dfn></td><td>As is informatie was niet zomaar bruikbaar</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-1">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om vanuit systemen ook bestaande informatie aan te leveren in dezelfde vorm als de verwachte levering van <abbr title="Opdrachtnemer">ON</abbr>.</td></tr>
+<tr><td><dfn id="dfn-kp-14" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-14</dfn></td><td>Informatie wordt vastgelegd vanuit verschillende perspectieven</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-2">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtnemer">ON</abbr> om systemen zo in te richten dat deze zowel de intern benodigde informatie als de te leveren informatie kunnen bevatten.</td></tr>
+<tr><td><dfn id="dfn-kp-15" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-15</dfn></td><td>De levering is opgebouwd in een omgeving die los stond van de omgeving waarin Systems Engineering werd gedaan</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-3">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtnemer">ON</abbr> om systemen zo in te richten dat deze zowel de intern benodigde informatie als de te leveren informatie kunnen bevatten.<br>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om de indeling van de OTL af te stemmen op de binnen <abbr title="Opdrachtgever">OG</abbr> gebruikte indeling vanuit systems engineering</td></tr>
+<tr><td><dfn id="dfn-kp-16" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-16</dfn></td><td>Extra productie – en levering van informatie</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-4">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om te besluiten de levering van extra informatie al dan niet toe te staan.</td></tr>
+<tr><td><dfn id="dfn-kp-17" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-17</dfn></td><td>Het aantal conversies tussen systemen en daardoor bewerkelijke versiebeheer</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-5">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtnemer">ON</abbr> om al in het BIM-uitvoeringsplan inzichtelijk te maken hoe en vanuit welke tools informatie wordt geleverd en hoe hier versiebeheer op wordt gedaan.</td></tr>
+<tr><td><dfn id="dfn-kp-18" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-18</dfn></td><td>De OTL laat zich lastig doorheen navigeren</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-6">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om de OTL aan te leveren in verschillende formaten, zodat deze beter inzichtelijk is voor <abbr title="Opdrachtnemer">ON</abbr></td></tr>
+<tr><td><dfn id="dfn-kp-19" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-19</dfn></td><td>De OTL was (plaatselijk) onvoldoende gedetailleerd</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-7">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om de OTL zelf beschrijvend en voldoende specifiek te maken</td></tr>
+<tr><td><dfn id="dfn-kp-20" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-20</dfn></td><td>De OTL veranderde tussentijds</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-8">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om voor een project een specifieke versie van de OTL uit te vragen. </td></tr>
+<tr><td><dfn id="dfn-kp-21" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-21</dfn></td><td>De OTL werkte soms beperkend</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-9">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om een werkwijze op te zetten waarin uitzonderingen kunnen worden gemaakt op restricties of de OTL binnen een project kan worden aangevuld.</td></tr>
+<tr><td><dfn id="dfn-kp-22" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-22</dfn></td><td>Onduidelijkheid in het gebruik van de OTL</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-10">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om de OTL zelf beschrijvend en voldoende specifiek te maken</td></tr>
+<tr><td><dfn id="dfn-kp-23" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-23</dfn></td><td>Onduidelijkheid hoe eigenschappen ingevuld moesten worden (conform de OTL)</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-11">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om de OTL zelf beschrijvend en voldoende specifiek te maken</td></tr>
+<tr><td><dfn id="dfn-kp-24" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-24</dfn></td><td>Onduidelijkheid over de inhoud van documenten zelf en hoe deze ingevuld moesten worden (conform de OTL)</td><td><a href="#dfn-s-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-6-12">S-6</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om de OTL zelf beschrijvend en voldoende specifiek te maken</td></tr>
+<tr><td><dfn id="dfn-kp-25" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-25</dfn></td><td>De interne controle door <abbr title="Opdrachtnemer">ON</abbr> vond handmatig plaats</td><td><a href="#dfn-s-7" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-7-1">S-7</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om validatie door <abbr title="Opdrachtnemer">ON</abbr>  op automatische wijze te faciliteren en zo doorlooptijd en kosten te besparen</td></tr>
+<tr><td><dfn id="dfn-kp-26" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-26</dfn></td><td>Onduidelijke validatiemethode</td><td><a href="#dfn-s-7" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-7-2">S-7</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om de OTL zelf beschrijvend en voldoende specifiek te maken</td></tr>
+<tr><td><dfn id="dfn-kp-27" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-27</dfn></td><td>Doorlooptijd van het terugkoppelen van validatieresultaten</td><td><a href="#dfn-s-7" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-7-3">S-7</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om validatie door <abbr title="Opdrachtnemer">ON</abbr>  op automatische wijze te faciliteren en zo doorlooptijd en kosten te besparen</td></tr>
+<tr><td><dfn id="dfn-kp-28" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-28</dfn></td><td>Veel proefleveringen (en doorlooptijd) benodigd voor een bruikbare configuratie</td><td><a href="#dfn-s-7" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-7-4">S-7</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om validatie door <abbr title="Opdrachtnemer">ON</abbr>  op automatische wijze te faciliteren en zo doorlooptijd en kosten te besparen</td></tr>
+<tr><td><dfn id="dfn-kp-29" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-29</dfn></td><td>Inflexibiliteit door koppeling van informatieleveringen aan betalingstermijnen</td><td><a href="#dfn-s-7" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-7-5">S-7</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om er (ook contractueel) rekening mee te houden dat er na oplevering nog informatie wordt geleverd vanuit respunten.</td></tr>
+<tr><td><dfn id="dfn-kp-30" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-30</dfn></td><td>Dubbelingen in oplevering </td><td><a href="#dfn-s-7" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-7-6">S-7</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om op termijn volledig over te stappen op geintegreerde dataleveringen.</td></tr>
+<tr><td><dfn id="dfn-kp-31" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-31</dfn></td><td>De opdrachtgever heeft de data zelf nog aan moeten passen</td><td><a href="#dfn-s-7" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-7-7">S-7</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om de OTL zelf beschrijvend en voldoende specifiek te maken</td></tr>
+<tr><td><dfn id="dfn-kp-32" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-32</dfn></td><td>Onvoldoende validatie door gebrek aan beoordelingscriteria</td><td><a href="#dfn-s-7" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-7-8">S-7</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om in de OTL specifieke informatie-eisen op te nemen die automatisch te valideren zijn.</td></tr>
+<tr><td><dfn id="dfn-kp-33" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">KP-33</dfn></td><td>Eindgebruiker van de data (assetmanagement) was niet/nauwelijks betrokken bij validatie</td><td><a href="#dfn-s-7" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-s-7-9">S-7</a></td><td>Aanbeveling aan <abbr title="Opdrachtgever">OG</abbr> om door specialisten te laten controleren of de geleverde informatie overeen komt met wat er daadwerkelijk gebouwd is.</td></tr>
+
+</tbody></table>
+
+</section><section id="github-issues"><div class="header-wrapper"><h3 id="x3-2-github-issues"><bdi class="secno">3.2 </bdi>Github issues</h3><a class="self-link" href="#github-issues" aria-label="Permalink for Section 3.2"></a></div>
+<p>De issues op github zijn geanalyseerd en omschreven in de onderstaande tabel. Vervolgens is de relatie gelegd naar de stappen die deze raakt en de behoefte die hier uit voortkomt.</p>
+<table>
+<tbody><tr><th>Titel</th><th>Omschrijving</th><th>Raakvlak</th></tr>
+<tr><td><a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/1">Definitie Areaalgegevens</a></td><td>Er is behoefte aan een definitie voor de term "Areaalgegevens". Er kan onderscheid gemaakt worden tussen gestructureerde en ongestructureerde gegevens, tussen geometrische gegevens en niet-geometrische gegevens, en tussen statische en dynamische gegevens. Het formaat waarin de gegevens zijn opgeslagen kan gesloten of open zijn.</td><td></td></tr>
+<tr><td><a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/2">Geometrie: Bestandsformaten</a></td><td>Geometrische gegevens kunnen in vele formaten worden uitgewisseld. Er zijn open en gesloten formaten met verschillende functionaliteiten. Een duidelijk onderscheid is te maken tussen 2D en 3D gegevens. Er lijkt een behoefte te zijn om op dit gebied overzicht en best-practices te definieren. Ook het opdelen van bestanden per project, objecttype of object kan hier in worden meegenomen.</td><td>stap 2 en 7, behoefte 1</td></tr>
+<tr><td><a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/3">Administratieve gegevens: Informatiemodel</a></td><td>Het informatiemodel op basis waarvan opdrachtgevers gegevens uitvragen bij opdrachtnemers kan verschillende vormen hebben. Belangrijk is dat de uitvraag expliciet en compleet is en dat het voor de opdrachtnemer haalbaar is om op de gevraagde wijze te leveren. Opdrachtgevers leveren informatie overigens niet altijd aan in het genoemde informatiemodel, maar op de manier hoe deze op dat moment in de systemen staat. Het leveren van informatie kost tijd en daarmee geld, het is van belang om goed te weten (en transparant te maken) waar de informatie later voor gebruikt gaat worden.</td><td>Stap 2 en 7, behoefte 2, 3, 4</td></tr>
+<tr><td><a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/4">Doel uitwisselen areaalgegevens</a></td><td>In de verschillende fases van de levenscyclus van een object is de informatiebehoefte verschillend. Binnen alle fases en tussen de fases is er behoefte aan gegevensuitwisseling. Op zijn minst moeten er afspraken zijn over de uitwisseling van data tussen partijen, maar er kan ook behoefte zijn aan nauwere samenwerking in een CDE.</td><td>Stap 2, 6 en 7</td></tr>
+<tr><td><a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/5">Administratieve gegevens: Bestandsformaten</a></td><td>Er worden verschillende formaten gebruikt om administratieve gegevens geintegreerd en gestructureerd uit te vragen. Sommige opdrachgevers maken vragen data uit in RDF. Opdrachtgevers laten deze gegevens soms ook meeleveren met geometrie (bijv. In IFC of GIS formaten). Er is behoefte aan tooling om deze leveringen te maken en er mee te kunnen werken. Het in kaart brengen van best practices met betrekking tot het leveren van deze gegevens kan helpen om verder richting te geven aan standaardisatie voor de sector.</td><td>Stap 2 en 7, behoefte 2, 3 en 5.</td></tr>
+<tr><td><a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/6">Koppelen van foto's, documenten</a></td><td>De koppeling tussen document en object wordt op verschillende manieren gedaan. Er is behoefte aan best-practices op dit gebied.</td><td>Stap 2, 6 en 7, behoefte 6</td></tr>
+<tr><td><a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/7">Informatie-leveringsspecificatie (ILS) van areaalgegevens</a></td><td>De ILS kan beter gespecificeerd worden als eisen dan als tekst, zodat gemakkelijker inzichtelijk is waar aan moet worden voldaan. Het standaardiseren van deze eisen zou opdrachtgevers helpen om hier specifieker in te zijn. </td><td>Stap 2 en 7, behoefte 8.</td></tr>
+<tr><td><a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/8">Informatiemodel metadata bij documenten</a></td><td>Documenten worden door opdrachtgevers veelal uitgevraagd in mappenstructuren, soms aangevuld met losse metadatabestanden. Metadata wordt soms geleverd in de vorm van bestandsnamen, waardoor deze minder toegankelijk is. De hoeveelheid gevraagde metadata kan erg veel zijn.</td><td>Stap 2 en 7. Behoefte 7, 4.</td></tr>
+<tr><td><a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/9">Verificatie- en validatiegegevens</a></td><td>De verificatie van geleverde gegevens kan grootendeels geautomatiseerd plaatsvinden. Idealiter zouden zowel opdrachtgever als opdrachtnemer deze controle moeten kunnen uitvoeren. Zo kan de hoeveelheid iteraties die nodig zijn om alle fouten uit een levering te halen zo klein mogelijk gemaakt worden. <br>Als de eisen machine leesbaar zijn opgeschreven kan ook validatie grotendeels geautomatiseerd worden. dit zal veel fouten voorkomen en daarmee kosten besparen. Om te controleren of de geleverde gegevens overeen komen met wat er daadwerkelijk staat zijn inspecties nodig.</td><td>Stap 2, 6 en 7. behoefte 9</td></tr>
+<tr><td><a href="https://github.com/bimloket/areaalgegevens-uitwisselen/issues/10">Geometrie: Informatiemodel</a></td><td>Als informatiemodel wordt IMGeo soms gebruikt, maar dit verschilt per opdrachtgever.</td><td></td></tr>
+</tbody></table></section></section>
+    <section id="behoefteanalyse"><div class="header-wrapper"><h2 id="x4-behoefteanalyse"><bdi class="secno">4. </bdi>Behoefteanalyse</h2><a class="self-link" href="#behoefteanalyse" aria-label="Permalink for Section 4."></a></div>
+<p>In dit hoofdstuk zijn de behoeften beschreven die uit de interviews en de github issues naar voren komen.</p>
+<section id="informatietechnologie"><div class="header-wrapper"><h3 id="x4-1-informatietechnologie"><bdi class="secno">4.1 </bdi>Informatietechnologie</h3><a class="self-link" href="#informatietechnologie" aria-label="Permalink for Section 4.1"></a></div>
+<p>Uit de analyse blijkt dat er een behoefte is aan verschillende tools om beter informatie uit te kunnen wisselen. </p>
+<ul>
+<li>Een tool om de dataleveringen in te kunnen zien, die zowel voor <abbr title="Opdrachtnemer">ON</abbr> als voor <abbr title="Opdrachtgever">OG</abbr> toegankelijk is.</li>
+<li>Een tool om de dataleveringen aan te kunnen passen, die toegankelijk is voor de partij die de levering opstelt.</li>
+<li>Een tool om de dataleveringen te valideren (o.b.v. eisen in ILS en OTL). <abbr title="Opdrachtgever">OG</abbr> heeft deze nodig bij de eindcontrole en <abbr title="Opdrachtnemer">ON</abbr> voor de controle van uitgaande leveringen.</li>
+</ul>
+<p>Daarnaast lijkt er behoefte aan tooling die leveringen kan samenstellen vanuit bestaande systemen en een ontvangen levering kan terugschrijven naar bestaande systemen. Voor het samenstellen of terugschrijven zouden domeinspecialisten de data moeten kunnen keuren.</p>
+</section><section id="rollen-en-competenties"><div class="header-wrapper"><h3 id="x4-2-rollen-en-competenties"><bdi class="secno">4.2 </bdi>Rollen en competenties</h3><a class="self-link" href="#rollen-en-competenties" aria-label="Permalink for Section 4.2"></a></div>
+<p>Voor het gecontrolleerd uitwisselen van informatie zijn diverse competenties nodig. Hieronder wordt voor de opdrachgever en aannemer een rol beschreven die over die competenties beschikt. Bij grotere projecten kan het wenselijk zijn om een dergelijke rol op te splitsen in een coordinerende rol en een technische rol.</p>
+<section id="opdrachtgever"><div class="header-wrapper"><h4 id="x4-2-1-opdrachtgever"><bdi class="secno">4.2.1 </bdi>Opdrachtgever</h4><a class="self-link" href="#opdrachtgever" aria-label="Permalink for Section 4.2.1"></a></div>
+<p>In het uitwisselingsproces heeft de opdrachgever een rol te vervullen met de volgende competenties:</p>
+<ul>
+<li>Het opstellen van project specifieke ILS'en</li>
+<li>Samenstellen van informatieleveringen uit systemen</li>
+<li>Uitvoeren van validaties op uitgaande en inkomende leveringen</li>
+<li>Informatie-technische afstemming met de hoofdaannemer om problemen op te lossen of afwijkende afspraken te maken</li>
+<li>Kunnen beoordelen van de impact op de achterliggende systemen bij uitzonderingen</li>
+<li>Vullen van systemen o.b.v. een ontvangen informatielevering</li>
+</ul>
+<p>De technische kennis die nodig is hangt af van de gebruikte technologie.</p>
+</section><section id="aannemer"><div class="header-wrapper"><h4 id="x4-2-2-aannemer"><bdi class="secno">4.2.2 </bdi>Aannemer</h4><a class="self-link" href="#aannemer" aria-label="Permalink for Section 4.2.2"></a></div>
+<p>In het uitwisselingsproces heeft de hoofdaannemer een rol te vervullen met de volgende competenties:</p>
+<ul>
+<li>Het opstellen van ILS'en voor onderaannemers</li>
+<li>Uitvoeren van validaties op uitgaande en inkomende leveringen</li>
+<li>Coordineren van deelleveringen van taakgroepen (bijv. onderaannemers)</li>
+<li>Samenstellen van informatieleveringen</li>
+<li>Informatie-technische afstemming met de opdrachtgever om problemen op te lossen of afwijkende afspraken te maken</li>
+</ul>
+<p>De technische kennis die nodig is hangt af van de gebruikte technologie. Omdat de hoofdaannemer werkt met verschillende opdrachtgevers die op dat gebied verschillende keuzes maken, dient kennis aanwezig te zijn van de verschillende de-facto standaard werkwijzen.</p>
+</section></section><section id="standaardisatie"><div class="header-wrapper"><h3 id="x4-3-standaardisatie"><bdi class="secno">4.3 </bdi>Standaardisatie</h3><a class="self-link" href="#standaardisatie" aria-label="Permalink for Section 4.3"></a></div>
+<p>Uit de analyse blijkt dat er behoefte is aan </p>
+<table>
+<thead>
+<tr>
+<th>Nummer</th>
+<th>Beschrijving</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Analyse van best practices voor het uitwisselen van geometrische gegevens: formaat, opdeling (per project, discipline, objecttype of object) en informatiemodel.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>meer/betere/generieke tooling en opschaling voor LD toepassingen</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Behoefte aan uitwisselingsvormen die aansluiten bij huidig technisch niveau (bijv. CSV)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Analyse van best practices voor het specificeren en inzichtelijk maken van informatiebehoefte</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Analyse van best practices voor het uitwisselen van administratieve gegevens</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Analyse van best practices voor het uitwisselen van documenten (en de koppeling naar objecten).</td>
+</tr>
+<tr>
+<td>7</td>
+<td>De levering van metadata voor documenten kan, met in acht name van wettelijke kaders, worden gestandaardiseerd.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Standaardisering van de eisen om een ILS uit op te bouwen</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Analyse van best practices voor het automatisch verifieren en valideren van leveringen.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Verweven ILS met RAW-contracten</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Behoefte aan software om datarooms te maken en validaties uit te voeren</td>
+</tr>
+</tbody></table>
+</section></section>
+    <section id="conclusies-en-aanbevelingen"><div class="header-wrapper"><h2 id="x5-conclusies-en-aanbevelingen"><bdi class="secno">5. </bdi>Conclusies en aanbevelingen</h2><a class="self-link" href="#conclusies-en-aanbevelingen" aria-label="Permalink for Section 5."></a></div>
+<p>Uit de analyse van de verschillende projecten blijkt dat de partijen positief zijn over het idee om geintegreerd te leveren. Ook zijn de partijen uiteindelijk tevreden over de samenwerking in de projecten.</p>
+<p>Het ISO19650 proces wordt binnen de projecten in grote lijnen al aangehouden. De belangrijkste aanbeveling op dat gebied is om in de toekomst bij inschrijving al een BIM-Uitvoeringsplan, een Mobilisatieplan en een Risicobeoordeling voor de informatielevering uit te vragen. Daarnaast wordt aanbevolgen mom de ILS en de OTL specifieker te maken.</p>
+<p>Vanuit <abbr title="Opdrachtgever">OG</abbr> en <abbr title="Opdrachtnemer">ON</abbr> bestaat een duidelijke behoefte om geautomatiseerd te kunnen controleren of een informatielevering aan de eisen voldoet. Hiervoor is viewer en validatie tooling nodig en moeten de eisen op machine leesbare wijze worden opgeschreven in de OTL en uiteindelijk ook in de ILS.</p>
+<p>De markt voor tooling bij de gekozen methode is nog niet volwassen. Er is behoefte aan meer commerciële of open tooling op dat gebied. Het formuleren van best-practices kan helpen om tooling generieker in te kunnen zetten. Ook kan daarmee de drempel voor andere opdrachtgevers en opdrachtnemers worden verlaagd om op de genoemde manier uit te kunnen wisselen.</p>
+<p>Het is aan te bevelen dat zowel opdrachtnemer als opdrachtgever intern kennis opbouwen op het gebied van geometrische datavormen (GIS en IFC) en de technologie rond RDF (turtle of andere serialisaties, SPARQL en ICDD) dit past bij de trend waarin informatie steeds meer als gestructureerde data wordt geconsumeerd in plaats van als documenten. Als vuistregel kan bijvoorbeeld worden gebruikt: wie GIS kan verdiept zich in IFC, wie met XML werkt kan zich de RDF eigen maken en wie systemen bevraagt met SQL zou dit ook in SPARQL kunnen leren.</p>
+<p>Voor kleinere organisaties is het leveren van complexe dataleveringen vaak lastig haalbaar. Bovendien is dit voor kleine projecten of onderhoudswerkzaamheden ook niet altijd nodig. Aan te bevelen is om een versimpelde werkwijze te verzinnen waarmee kleine, simpele dataleveringen direct kunnen worden gedaan vanuit spreadsheet en CAD systemen. De definities in de leveringen dienen wel aan te sluiten op de OTL van <abbr title="Opdrachtgever">OG</abbr>, zodat ook een simpele levering past in het totale informatielandschap. Per contract zou dan moeten worden bepaald of deze versimpelde leveringsvorm afdoende is.</p>
+</section>
+
+
+    <section id="conformance"><div class="header-wrapper"><h2 id="x6-conformiteit"><bdi class="secno">6. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 6."></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn,
+      zijn ook alle diagrammen, voorbeelden, en noten in dit document niet
+      normatief. Verder is alles in dit document normatief.</p>
+    
+    </section>
+
+    <section id="tof" class="respec-offending-element" title="Alle secties moeten beginnen met een `h2-6` element.">
+    
+    </section>
+
+    <nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#introductie"><bdi class="secno">1. </bdi>Introductie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#methode"><bdi class="secno">1.1 </bdi>Methode</a></li></ol></li><li class="tocline"><a class="tocxref" href="#procesbeschrijving"><bdi class="secno">2. </bdi>Procesbeschrijving</a></li><li class="tocline"><a class="tocxref" href="#knelpuntenanalyse"><bdi class="secno">3. </bdi>Knelpuntenanalyse</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#knelpunten-uit-interviews"><bdi class="secno">3.1 </bdi>Knelpunten uit interviews</a></li><li class="tocline"><a class="tocxref" href="#github-issues"><bdi class="secno">3.2 </bdi>Github issues</a></li></ol></li><li class="tocline"><a class="tocxref" href="#behoefteanalyse"><bdi class="secno">4. </bdi>Behoefteanalyse</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informatietechnologie"><bdi class="secno">4.1 </bdi>Informatietechnologie</a></li><li class="tocline"><a class="tocxref" href="#rollen-en-competenties"><bdi class="secno">4.2 </bdi>Rollen en competenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#opdrachtgever"><bdi class="secno">4.2.1 </bdi>Opdrachtgever</a></li><li class="tocline"><a class="tocxref" href="#aannemer"><bdi class="secno">4.2.2 </bdi>Aannemer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#standaardisatie"><bdi class="secno">4.3 </bdi>Standaardisatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conclusies-en-aanbevelingen"><bdi class="secno">5. </bdi>Conclusies en aanbevelingen</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">6. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Termen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Termen gedefinieerd door referentie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#glossary"><bdi class="secno">B. </bdi>Glossary</a></li><li class="tocline"><a class="tocxref" href="#verslag-interview-met-og"><bdi class="secno">C. </bdi>Verslag interview met <abbr title="Opdrachtgever">OG</abbr></a><ol class="toc"><li class="tocline"><a class="tocxref" href="#introductie-0"><bdi class="secno">C.1 </bdi>Introductie</a></li><li class="tocline"><a class="tocxref" href="#vragenlijst"><bdi class="secno">C.2 </bdi>Vragenlijst</a></li><li class="tocline"><a class="tocxref" href="#x2-3-vaststellen-van-eisen-voor-inschrijving"><bdi class="secno">C.3 </bdi>2.3 Vaststellen van eisen voor inschrijving</a></li><li class="tocline"><a class="tocxref" href="#x4-1-t-m-4-7-gunning"><bdi class="secno">C.4 </bdi>4.1 t/m 4.7 Gunning</a></li><li class="tocline"><a class="tocxref" href="#x5-2-informatietechnologie-mobiliseren-o-b-v-mobilisatieplan"><bdi class="secno">C.5 </bdi>5.2 Informatietechnologie mobiliseren o.b.v. mobilisatieplan</a></li><li class="tocline"><a class="tocxref" href="#x7-4-beoordelen-en-accepteren-informatiemodel"><bdi class="secno">C.6 </bdi>7.4 Beoordelen en accepteren informatiemodel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#interview-met-on1"><bdi class="secno">D. </bdi>Interview met ON1</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#introductie-1"><bdi class="secno">D.1 </bdi>Introductie</a></li><li class="tocline"><a class="tocxref" href="#vragenlijst-0"><bdi class="secno">D.2 </bdi>Vragenlijst</a></li><li class="tocline"><a class="tocxref" href="#x3-1-t-m-3-7-inschrijving"><bdi class="secno">D.3 </bdi>3.1 t/m 3.7 Inschrijving</a></li><li class="tocline"><a class="tocxref" href="#x4-1-t-m-4-7-gunning-0"><bdi class="secno">D.4 </bdi>4.1 t/m 4.7 Gunning</a></li><li class="tocline"><a class="tocxref" href="#x6-1-t-m-6-5-productie-van-informatie-door-samenwerking"><bdi class="secno">D.5 </bdi>6.1 t/m 6.5 Productie van informatie door samenwerking</a></li><li class="tocline"><a class="tocxref" href="#x7-1-t-m-7-4-levering-van-het-informatiemodel"><bdi class="secno">D.6 </bdi>7.1 t/m 7.4 Levering van het informatiemodel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#interview-met-on2"><bdi class="secno">E. </bdi>Interview met ON2</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#introductie-2"><bdi class="secno">E.1 </bdi>Introductie</a></li><li class="tocline"><a class="tocxref" href="#vragenlijst-1"><bdi class="secno">E.2 </bdi>Vragenlijst</a></li><li class="tocline"><a class="tocxref" href="#x3-1-t-m-3-7-inschrijving-0"><bdi class="secno">E.3 </bdi>3.1 t/m 3.7 Inschrijving</a></li><li class="tocline"><a class="tocxref" href="#x4-1-t-m-4-7-gunning-1"><bdi class="secno">E.4 </bdi>4.1 t/m 4.7 Gunning</a></li><li class="tocline"><a class="tocxref" href="#x6-1-t-m-6-5-productie-van-informatie-door-samenwerking-0"><bdi class="secno">E.5 </bdi>6.1 t/m 6.5 Productie van informatie door samenwerking</a></li><li class="tocline"><a class="tocxref" href="#x7-1-t-m-7-4-levering-van-het-informatiemodel-0"><bdi class="secno">E.6 </bdi>7.1 t/m 7.4 Levering van het informatiemodel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#interview-met-on3"><bdi class="secno">F. </bdi>Interview met ON3</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#introductie-3"><bdi class="secno">F.1 </bdi>Introductie</a></li><li class="tocline"><a class="tocxref" href="#vragenlijst-2"><bdi class="secno">F.2 </bdi>Vragenlijst</a></li><li class="tocline"><a class="tocxref" href="#x3-1-t-m-3-7-inschrijving-1"><bdi class="secno">F.3 </bdi>3.1 t/m 3.7 Inschrijving</a></li><li class="tocline"><a class="tocxref" href="#x4-1-t-m-4-7-gunning-2"><bdi class="secno">F.4 </bdi>4.1 t/m 4.7 Gunning</a></li><li class="tocline"><a class="tocxref" href="#x6-1-t-m-6-5-productie-van-informatie-door-samenwerking-1"><bdi class="secno">F.5 </bdi>6.1 t/m 6.5 Productie van informatie door samenwerking</a></li><li class="tocline"><a class="tocxref" href="#x7-1-t-m-7-4-levering-van-het-informatiemodel-1"><bdi class="secno">F.6 </bdi>7.1 t/m 7.4 Levering van het informatiemodel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">G. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">G.1 </bdi>Normatieve referenties</a></li><li class="tocline"><a class="tocxref" href="#informatieve-referenties"><bdi class="secno">G.2 </bdi>Informatieve referenties</a></li></ol></li></ol></nav>
+
+    <section id="index" class="appendix"><div class="header-wrapper"><h2 id="a-index"><bdi class="secno">A. </bdi>Index</h2><a class="self-link" href="#index" aria-label="Permalink for Appendix A."></a></div>
+    
+    <section id="index-defined-here"><div class="header-wrapper"><h3 id="a-1-termen-gedefinieerd-door-deze-specificatie"><bdi class="secno">A.1 </bdi>Termen gedefinieerd door deze specificatie</h3><a class="self-link" href="#index-defined-here" aria-label="Permalink for Appendix A.1"></a></div>
+    
+    <ul class="index">
+    <li>
+      <a class="index-term" href="#dfn-kp-1">KP-1</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-10">KP-10</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-11">KP-11</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-12">KP-12</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-13">KP-13</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-14">KP-14</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-15">KP-15</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-16">KP-16</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-17">KP-17</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-18">KP-18</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-19">KP-19</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-2">KP-2</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-20">KP-20</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-21">KP-21</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-22">KP-22</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-23">KP-23</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-24">KP-24</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-25">KP-25</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-26">KP-26</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-27">KP-27</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-28">KP-28</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-29">KP-29</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-3">KP-3</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-30">KP-30</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-31">KP-31</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-32">KP-32</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-33">KP-33</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-4">KP-4</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-5">KP-5</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-6">KP-6</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-7">KP-7</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-8">KP-8</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-kp-9">KP-9</a> 
+    <span class="print-only">§3.1</span></li><li>
+      <a class="index-term" href="#dfn-ontologie">Ontologie</a> 
+    <span class="print-only">§B.</span></li><li>
+      <a class="index-term" href="#dfn-otl">OTL</a> 
+    <span class="print-only">§B.</span></li><li>
+      <a class="index-term" href="#dfn-rdf">RDF</a> 
+    <span class="print-only">§B.</span></li><li>
+      <a class="index-term" href="#dfn-s-1">S-1</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-1-1">S-1.1</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-1-2">S-1.2</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-1-3">S-1.3</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-1-4">S-1.4</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-1-5">S-1.5</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-1-6">S-1.6</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-1-7">S-1.7</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-1-8">S-1.8</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-2">S-2</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-2-1">S-2.1</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-2-2">S-2.2</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-2-3">S-2.3</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-2-4">S-2.4</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-3">S-3</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-3-1">S-3.1</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-3-2">S-3.2</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-3-3">S-3.3</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-3-4">S-3.4</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-3-5">S-3.5</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-3-6">S-3.6</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-3-7">S-3.7</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-4">S-4</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-4-1">S-4.1</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-4-2">S-4.2</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-4-3">S-4.3</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-4-4">S-4.4</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-4-5">S-4.5</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-4-6">S-4.6</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-4-7">S-4.7</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-5">S-5</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-5-1">S-5.1</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-5-2">S-5.2</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-5-3">S-5.3</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-6">S-6</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-6-1">S-6.1</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-6-2">S-6.2</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-6-3">S-6.3</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-6-4">S-6.4</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-6-5">S-6.5</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-7">S-7</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-7-1">S-7.1</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-7-2">S-7.2</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-7-3">S-7.3</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-7-4">S-7.4</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-8">S-8</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-8-1">S-8.1</a> 
+    <span class="print-only">§2.</span></li><li>
+      <a class="index-term" href="#dfn-s-8-2">S-8.2</a> 
+    <span class="print-only">§2.</span></li>
+  </ul>
+  </section><section id="index-defined-elsewhere"><div class="header-wrapper"><h3 id="a-2-termen-gedefinieerd-door-referentie"><bdi class="secno">A.2 </bdi>Termen gedefinieerd door referentie</h3><a class="self-link" href="#index-defined-elsewhere" aria-label="Permalink for Appendix A.2"></a></div>
+    
+    <ul class="index">
+    
+  </ul>
+  </section></section>
+
+
+
+
+    <section class="appendix informative" id="glossary"><div class="header-wrapper"><h2 id="b-glossary"><bdi class="secno">B. </bdi>Glossary</h2><a class="self-link" href="#glossary" aria-label="Permalink for Appendix B."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
+    
+    
+    <p><dfn data-lt="Ontologie" id="dfn-ontologie" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Ontologie</dfn> Een kennismodel van een specifiek kennisdomein in de werkelijkheid. Bevat een set regels, die gebruikt kunnen worden om extra kennis af te leiden uit gelinkte data. Met behulp van zo'n model kunnen computers begrijpen wat de data betekent en redeneren over data.</p>
+    <p><dfn data-lt="OTL" id="dfn-otl" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;OTL&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">OTL</dfn>: Object Type Library (en) of Objecttypenbibliotheek (nl). Term die in de bouwsector gebruikt wordt en een specialisatie is van een <a href="#dfn-ontologie" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-ontologie-1">Ontologie</a>.</p>
+    
+    <p><dfn data-lt="RDF|Resource Description Framework" id="dfn-rdf" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;RDF&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">RDF</dfn>: Resource Description Framework. Zie [<cite><a class="bibref" data-link-type="biblio" href="#bib-rdf11-primer" title="RDF 1.1 Primer">rdf11-primer</a></cite>].</p>
+    
+
+    </section>
+
+
+    <section class="appendix informative" id="verslag-interview-met-og"><div class="header-wrapper"><h2 id="c-verslag-interview-met-og"><bdi class="secno">C. </bdi>Verslag interview met <abbr title="Opdrachtgever">OG</abbr></h2><a class="self-link" href="#verslag-interview-met-og" aria-label="Permalink for Appendix C."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
+<p>Datum: 28-09-2021</p>
+<p>Aanwezig:</p>
+<ul>
+<li><abbr title="Opdrachtgever">OG</abbr> (3 personen)</li>
+<li>Rakesh Kalpoe - Arcadis</li>
+<li>Lucas Verhelst - BIM-Connected</li>
+</ul>
+<section id="introductie-0"><div class="header-wrapper"><h3 id="c-1-introductie"><bdi class="secno">C.1 </bdi>Introductie</h3><a class="self-link" href="#introductie-0" aria-label="Permalink for Appendix C.1"></a></div>
+<ul>
+<li>Ter voorbereiding heeft <abbr title="Opdrachtgever">OG</abbr> per processtap de knelpunten benoemd middels de (op de ISO19650 gebaseerde) vragenlijst. </li>
+<li>Rakesh licht het plan voor de meeting toe: Eerst wordt de vragenlijst in het algemeen besproken, waarna de benoemde knelpunten in de lijst puntsgewijs worden besproken aan de hand van een paar begeleidende sheets. De presentatie worden tijdens de sessie tevens gebruikt om de kern van het gesprek vast te leggen.</li>
+</ul>
+</section><section id="vragenlijst"><div class="header-wrapper"><h3 id="c-2-vragenlijst"><bdi class="secno">C.2 </bdi>Vragenlijst</h3><a class="self-link" href="#vragenlijst" aria-label="Permalink for Appendix C.2"></a></div>
+<ul>
+<li>Voor <abbr title="Opdrachtgever">OG</abbr> was het lastig om bij de vragenlijst in te vullen in welke processtap een project-specifieke knelpunt zich voordeed. <abbr title="Opdrachtgever">OG</abbr> voert namelijk vooral RAW projecten uit, waarin niet alle genoemde stappen relevant zijn.</li>
+<li>De antwoorden in de vragenlijst zijn van toepassing voor alle projecten die nog moeten worden behandeld.</li>
+</ul>
+</section><section id="x2-3-vaststellen-van-eisen-voor-inschrijving"><div class="header-wrapper"><h3 id="c-3-2-3-vaststellen-van-eisen-voor-inschrijving"><bdi class="secno">C.3 </bdi>2.3 Vaststellen van eisen voor inschrijving</h3><a class="self-link" href="#x2-3-vaststellen-van-eisen-voor-inschrijving" aria-label="Permalink for Appendix C.3"></a></div>
+<p><strong>Welke knelpunten zijn geconstateerd in de projecten?</strong></p>
+<ul>
+<li>Er werd geen BIM-uitvoeringsplan, Mobilisatieplan en Risicoanalyse uitgevraagd in de projecten. <a href="#dfn-kp-2" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-2-1">KP-2</a><ul>
+<li><abbr title="Opdrachtgever">OG</abbr> heeft geen eisen voor o.a. een BIM-uitvoeringsplan en weet niet hoe een dergelijk plan (van de opdrachtnemer) gevalideerd moet worden. Er is wel een ILS beschikbaar die de inhoud van de levering voorschrijft, maar deze schiet nog tekort ten aanzien van het proces om (gezamenlijk) tot een valide levering te komen. </li>
+<li><abbr title="Opdrachtgever">OG</abbr> mist hierdoor o.a. een planning met wat wanneer geleverd wordt in de uitvragen die zij nu doet. Dit leidt tot onverwacht werk in de organisatie, zoals de verwerking of beoordeling van grote hoeveelheden data en documenten.</li>
+</ul>
+</li>
+<li>Er waren weinig mogelijkheden om invloed uit te oefenen op de informatiestroom vanuit opdrachtnemer. De invulling van het informatiemanagement werd hierdoor afhankelijk van de waarde die de hoofdaannemer hier aan hechtte. <a href="#dfn-kp-4" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-4-1">KP-4</a><ul>
+<li>Het was aan de aannemer wanneer en hoe de leveringen gedaan werden. Dat ging bij het project P1 goed, bij P2 en P3 ging het minder goed.</li>
+<li>Bij het project P3 kwam de levering pas helemaal aan het eind, de documenten zijn later los geleverd. Aan het eind van een project zijn betrokkenen vaak weer naar andere projecten toe en blijkt het lastig om data nog te laten verbeteren.</li>
+<li><abbr title="Opdrachtgever">OG</abbr> ziet dat goed informatiemanagement steeds belangrijker wordt in de projecten en wil hier sterker de meerwaarde van laten zien aan de aannemers.</li>
+<li>Het uitvragen van BIM-uitvoeringsplannen is lastig in RAW-projecten, omdat het lastig te vatten is in concrete EMVI-criteria met bonus malus. Achteraf kan vaak pas beoordeeld worden of het plan goed uitgevoerd is.</li>
+</ul>
+</li>
+<li>Het opstellen, het communiceren en valideren van een eenduidige mappenstructuur voor documentleveringen was lastig. Er wordt een mappenstructuur vereist, waarin documenten per asset, per soort worden aangeleverd. <a href="#dfn-kp-5" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-5-1">KP-5</a><ul>
+<li><abbr title="Opdrachtgever">OG</abbr> heeft de mappenstructuur intern met haar beheerders opgezet. <abbr title="Opdrachtgever">OG</abbr> krijgt in de praktijk veel vragen over welk document in welke categorie moet vallen. Dit is lastig volledig te standaardiseren omdat verschillende organisaties hun eigen documentsoorten gebruiken. Er zijn hoogover standaarden beschikbaar zoals de NEN 2084, maar de structuur van <abbr title="Opdrachtgever">OG</abbr> is veel gedetailleerder dan dat.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>Momenteel wordt er door het CROW aandacht besteedt om de ILS met de VSE/VSP te verweven. <abbr title="Opdrachtgever">OG</abbr> heeft eenzelfde behoefte om de ILS te verweven met RAW-contracten.   </li>
+<li><abbr title="Opdrachtgever">OG</abbr> heeft de behoefte om de juridische staat van ILS’en gezamenlijk als opdrachtgevers vast te stellen. Op deze manier is de opdrachtgever meer in staat om invloed uit te oefenen op de informatiestromen (o.a. middels toebedelen van EMVI-scores, boetes) binnen UAV-GC projecten. </li>
+<li>Er is een behoefte om te beoordelen stukken voor de inschrijving (o.a. het BIM uitvoeringsplan) meer uniform uit te vragen. <ul>
+<li>Het is bekend dat de grotere ingenieursbureau’s templates hebben voor bijv. een BIM uitvoeringsplan. Bij standaardisatie moet wel ruimte zijn voor project- of organisatiespecifieke afwijkingen.</li>
+</ul>
+</li>
+</ul>
+</section><section id="x4-1-t-m-4-7-gunning"><div class="header-wrapper"><h3 id="c-4-4-1-t-m-4-7-gunning"><bdi class="secno">C.4 </bdi>4.1 t/m 4.7 Gunning</h3><a class="self-link" href="#x4-1-t-m-4-7-gunning" aria-label="Permalink for Appendix C.4"></a></div>
+<p><strong>Welke knelpunten zijn geconstateerd in de projecten?</strong></p>
+<ul>
+<li>Het gebruik van de interne Dataroom wordt project afhankelijk gebruikt. <a href="#dfn-kp-8" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-8-1">KP-8</a></li>
+<li><abbr title="Opdrachtgever">OG</abbr> had weinig inzicht in de organisatie en het proces om tot een levering te komen. Hierdoor kon het niet beoordelen of de aannemer in staat was om de informatie te leveren. <a href="#dfn-kp-9" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-9-1">KP-9</a><ul>
+<li>De meeste stappen na gunning worden door het opleverteam uitgevoerd. <abbr title="Opdrachtgever">OG</abbr> heeft geen zicht op of en hoe dit gebeurt.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>N.v.t.</li>
+</ul>
+</section><section id="x5-2-informatietechnologie-mobiliseren-o-b-v-mobilisatieplan"><div class="header-wrapper"><h3 id="c-5-5-2-informatietechnologie-mobiliseren-o-b-v-mobilisatieplan"><bdi class="secno">C.5 </bdi>5.2 Informatietechnologie mobiliseren o.b.v. mobilisatieplan</h3><a class="self-link" href="#x5-2-informatietechnologie-mobiliseren-o-b-v-mobilisatieplan" aria-label="Permalink for Appendix C.5"></a></div>
+<p><strong>Welke knelpunten zijn geconstateerd in de projecten?</strong></p>
+<ul>
+<li><p>Het laten ontwikkelen van een interne Dataroom was een lang en kostbaar proces. <abbr title="Opdrachtgever">OG</abbr> geeft aan dat dat het grootste knelpunt is geweest om de belofte achter COINS waar te kunnen maken binnen de organisatie. <a href="#dfn-kp-10" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-10-1">KP-10</a></p>
+<ul>
+<li>Men heeft overwogen om de software van het CDE openbaar te maken, maar zag risico’s in de verantwoordelijkheid die daar bij zou kunnen komen kijken. </li>
+<li>Het CDE is wél succesvol getest met as-is dataleveringen uit de projecten.</li>
+</ul>
+</li>
+<li><p>De opdrachtnemer was afhankelijk van <abbr title="Opdrachtgever">OG</abbr> voor de validatie van hun informatieleveringen. <a href="#dfn-kp-11" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-11-1">KP-11</a></p>
+<ul>
+<li>Bij de onderzochte projecten verliep het opstarten van de uitwisseling moeizaam. Men loopt daarbij tegen technische problemen aan. In het geval van project P3 werkt momenteel nog niet alles. Daar werd uit Excel-sheets en CAD- tekeningen een COINS container gegenereerd: Echter, de hoofdaannemer kon niet beoordelen of deze container voldeed aan de ILS. Voor feedback waren zij afhankelijk van de opdrachtgever, wat veel doorlooptijd en capaciteit kostte. </li>
+<li>Het opleverteam zou de eigen leveringen moeten kunnen controleren met directe feedback.</li>
+<li><abbr title="Opdrachtgever">OG</abbr> vindt dat voor het gebruik van een uitwisselingsstandaard geen specialistische IT kennis (bijv. COINS) nodig zou moeten zijn.</li>
+</ul>
+</li>
+<li><p><abbr title="Opdrachtgever">OG</abbr> was afhankelijk van externe medewerkers. Er was intern onvoldoende technische kennis over (o.a. COINS, RDF). <a href="#dfn-kp-12" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-12-1">KP-12</a></p>
+<ul>
+<li><abbr title="Opdrachtgever">OG</abbr> gaat inzetten op lichte, geo gebaseerde formaten, omdat het daarmee gemakkelijker wordt voor GIS specialisten om aan te haken. Ze ziet dat als een kleine stap terug, omdat er dan geen link meer is met de documenten die geleverd gaan worden in toekomstige projecten.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li><abbr title="Opdrachtgever">OG</abbr> ziet hier een kans voor een landelijk initiatief. Er moet standaard software komen die mensen helpt. Wat de provincie betreft kan dit open software zijn of commerciële software. Men denkt bijvoorbeeld aan een aanbesteding met meerdere opdrachtgevers, waarbij de uitkomst gezamenlijk in beheer wordt genomen en/of het openstellen van het resultaat (open source) om de compatibiliteit van andere tools te bevorderen.</li>
+</ul>
+</section><section id="x7-4-beoordelen-en-accepteren-informatiemodel"><div class="header-wrapper"><h3 id="c-6-7-4-beoordelen-en-accepteren-informatiemodel"><bdi class="secno">C.6 </bdi>7.4 Beoordelen en accepteren informatiemodel</h3><a class="self-link" href="#x7-4-beoordelen-en-accepteren-informatiemodel" aria-label="Permalink for Appendix C.6"></a></div>
+<p><strong>Welke knelpunten zijn geconstateerd in de projecten?</strong></p>
+<ul>
+<li>De geleverde informatie werd onvoldoende gevalideerd na ontvangst. <a href="#dfn-kp-32" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-32-1">KP-32</a><ul>
+<li>Het gebrek aan specifieke informatie-eisen maakte het valideren van de levering vrijwel onmogelijk. </li>
+<li>De BIM specialisten van <abbr title="Opdrachtgever">OG</abbr> kijken de levering naar eer en geweten na en halen er zo veel mogelijk fouten uit. Er wordt door hen niet gekeken of de geleverde informatie klopt met wat er buiten gebouwd is. </li>
+<li>Bij het project P1  was eens in de maand een overleg in de beginfase. Dat werkte goed. </li>
+<li>Bij het project P2 liep de communicatie niet zo lekker, maar toen er ineens een levering kwam bleek die best goed.</li>
+</ul>
+</li>
+<li>Bij de validatie van de dataset was er vaak geen assetmanager betrokken, terwijl die juist belang heeft bij goede data. <a href="#dfn-kp-33" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-33-1">KP-33</a><ul>
+<li>Bij de validatie van de geleverde informatie zou de toezichthouder een rol moeten krijgen vanuit de projectorganisatie. Die persoon controleert binnen een project ook of er volgens de eisen en volgens het ontwerp gebouwd wordt.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>N.v.t.</li>
+</ul>
+</section></section>
+    <section class="appendix informative" id="interview-met-on1"><div class="header-wrapper"><h2 id="d-interview-met-on1"><bdi class="secno">D. </bdi>Interview met ON1</h2><a class="self-link" href="#interview-met-on1" aria-label="Permalink for Appendix D."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
+<p>Datum: 01-03-2022</p>
+<p>Aanwezig:</p>
+<ul>
+<li><abbr title="Opdrachtgever">OG</abbr></li>
+<li>Rakesh Kalpoe - Arcadis</li>
+<li>Lucas Verhelst - BIM-Connected</li>
+</ul>
+<section id="introductie-1"><div class="header-wrapper"><h3 id="d-1-introductie"><bdi class="secno">D.1 </bdi>Introductie</h3><a class="self-link" href="#introductie-1" aria-label="Permalink for Appendix D.1"></a></div>
+<ul>
+<li>Ter voorbereiding heeft ON1 per processtap de knelpunten benoemd middels de (op de ISO19650 gebaseerde) vragenlijst. ON1 geeft aan dat vanuit hun perspectief het project prima is verlopen.</li>
+<li>ON1 was betrokken bij zowel de inschrijving als de uitvoering van het project. Het project werd door zowel opdrachtgever als opdrachtnemer gezien als pilot voor de uitwisseling van informatie.</li>
+<li>Arcadis licht het plan voor de meeting toe: Eerst wordt de vragenlijst in het algemeen besproken, waarna de benoemde knelpunten in de lijst puntsgewijs worden besproken aan de hand van een paar begeleidende sheets. De presentatie wordt tijdens de sessie tevens gebruikt om de kern van het gesprek vast te leggen.</li>
+</ul>
+</section><section id="vragenlijst-0"><div class="header-wrapper"><h3 id="d-2-vragenlijst"><bdi class="secno">D.2 </bdi>Vragenlijst</h3><a class="self-link" href="#vragenlijst-0" aria-label="Permalink for Appendix D.2"></a></div>
+<ul>
+<li>ON1 gaf aan dat de vragenlijst prima was in te vullen. Eén stap was niet uitgevoerd, namelijk stap 3.7 Het samenstellen van de inschrijving middels: <ul>
+<li>Het BIM-uitvoeringsplan</li>
+<li>Een overzicht van de beoordeling van de taakgroepen </li>
+<li>Het mobilisatieplan en </li>
+<li>De risicobeoordeling m.b.t. informatielevering.</li>
+</ul>
+</li>
+<li>Dit was immers niet contractueel was uitgevraagd omdat het een pilotproject betrof. De antwoorden in de vragenlijst gelden voor het project: P1.</li>
+</ul>
+</section><section id="x3-1-t-m-3-7-inschrijving"><div class="header-wrapper"><h3 id="d-3-3-1-t-m-3-7-inschrijving"><bdi class="secno">D.3 </bdi>3.1 t/m 3.7 Inschrijving</h3><a class="self-link" href="#x3-1-t-m-3-7-inschrijving" aria-label="Permalink for Appendix D.3"></a></div>
+<p><strong>Welke knelpunten zijn er geconstateerd in de projecten?</strong></p>
+<ul>
+<li><p>Er werd geen BIM-uitvoeringsplan, Mobilisatieplan en Risicoanalyse uitgevraagd in de projecten door de opdrachtgever. <a href="#dfn-kp-2" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-2-2">KP-2</a></p>
+<ul>
+<li>Doordat de opdrachtnemer niet contractueel verplicht was om de plannen samen te stellen, was er intern verminderd zicht op de  verantwoordelijkheden en te leveren capaciteit en vaardigheden ten tijde van inschrijven. </li>
+<li>In een latere fase is wel een BIM-uitvoeringsplan opgesteld en met de opdrachtgever gecommuniceerd. Dit plan is vanuit de visie van de opdrachtnemer geschreven. De opdrachtgever had de behoefte om te weten wanneer en hoe de levering van informatie plaats zou vinden.</li>
+</ul>
+</li>
+<li><p>Onduidelijkheid in welke informatie op welke momenten moest worden geleverd. <a href="#dfn-kp-3" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-3-1">KP-3</a></p>
+<ul>
+<li>Bij de uitvraag was geen ILS en OTL geleverd. Als de opdrachtnemer dit in deze fase al had gehad dan was beter bekend geweest wat wanneer geleverd moest worden.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>De aannemer suggereert om een (lichte) vorm van o.a. een BIM-uitvoeringsplan contractueel uit te vragen. Hierdoor wordt de interne organisatie geforceerd om in een vroeg stadium met het juiste team de voorbereidende stappen te treffen (mocht het project worden gegund). Ook weet de opdrachtgever beter wat te verwachten na gunning.</li>
+</ul>
+</section><section id="x4-1-t-m-4-7-gunning-0"><div class="header-wrapper"><h3 id="d-4-4-1-t-m-4-7-gunning"><bdi class="secno">D.4 </bdi>4.1 t/m 4.7 Gunning</h3><a class="self-link" href="#x4-1-t-m-4-7-gunning-0" aria-label="Permalink for Appendix D.4"></a></div>
+<p><strong>Welke knelpunten zijn er geconstateerd in de projecten?</strong></p>
+<ul>
+<li><p>Onduidelijkheid in welke informatie moest worden geleverd. <a href="#dfn-kp-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-6-1">KP-6</a></p>
+<ul>
+<li>De OTL versie ten tijde van de inschrijving verschilde met de OTL versie waarmee daadwerkelijk informatie moest worden geproduceerd. <a href="#dfn-kp-20" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-20-1">KP-20</a></li>
+<li>Daarbij kwam kijken dat de levering van de OTL lastig was te interpreteren, omdat de opdrachtnemer deze niet zelfstandig kon lezen. <a href="#dfn-kp-18" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-18-1">KP-18</a> Deze werd geleverd middels Excel sheets en een COINS container. Al vroeg in het project werd dit probleem opgelost doordat de opdrachtgever de aannemer toegang verschafte tot de Relatics omgeving waar de OTL overzichtelijk was gepresenteerd.</li>
+<li>Een externe partij controleerde de COINS containers (OA1)</li>
+</ul>
+</li>
+<li><p>Geen levering van bestaande informatie <a href="#dfn-kp-7" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-7-1">KP-7</a></p>
+<ul>
+<li>Er wel werd een lege COINS container met daarin de OTL geleverd. Ook is de OTL als excellijst geleverd. Later heeft de opdrachtnemer toegang gekregen tot een Relaticsomgeving om in de OTL te kunnen kijken.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>N.v.t.</li>
+</ul>
+</section><section id="x6-1-t-m-6-5-productie-van-informatie-door-samenwerking"><div class="header-wrapper"><h3 id="d-5-6-1-t-m-6-5-productie-van-informatie-door-samenwerking"><bdi class="secno">D.5 </bdi>6.1 t/m 6.5 Productie van informatie door samenwerking</h3><a class="self-link" href="#x6-1-t-m-6-5-productie-van-informatie-door-samenwerking" aria-label="Permalink for Appendix D.5"></a></div>
+<p><strong>Welke knelpunten zijn er geconstateerd in de projecten?</strong></p>
+<ul>
+<li><p>Informatie wordt vastgelegd vanuit verschillende perspectieven. <a href="#dfn-kp-14" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-14-1">KP-14</a></p>
+<ul>
+<li>De gebruikte decompositie (bedoeld voor de realisatie-fase) verschilde van de aan te leveren decompositie (bedoeld voor de beheerfase). Deze moest eenmalig worden omgezet voor de eindlevering.</li>
+<li>Het model werd opgebouwd in een SE tool (van OA2). Daarbij maakte opdrachtnemer een eigen objectenboom. </li>
+<li>Het vullen van alle individuele objecten met de hand was veel werk, overerving en groepsmatig invullen was niet beschikbaar, maar had wel tijd kunnen besparen. </li>
+<li>Veel werk is uitgevoerd door een externe partij (OA3), omdat hier in de eigen organisatie onvoldoende kennis voor beschikbaar was. Dit leidde tot hogere kosten en was belemmerend voor de opdrachnemer.</li>
+<li>De informatie is aan het eind van het project eenmalig (na As Built) vastgelegd.</li>
+</ul>
+</li>
+<li><p>De levering is opgebouwd in een omgeving die los stond van de omgeving waarin Systems Engineering werd gedaan. <a href="#dfn-kp-15" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-15-1">KP-15</a></p>
+<ul>
+<li>De SE omgeving was niet flexibel genoeg en men wilde niet het risico lopen dat het opbouwen van de levering en van de SE informatie elkaar negatief zou beinvloeden.</li>
+<li>Voor het correct leveren van de informatie waren ongeveer tien iteraties nodig.</li>
+<li>De decompositie in de SE omgeving verschilde van die voor de levering aan de opdrachtgever. </li>
+<li>Opdrachtnemer zou deze informatie het liefst enkelvoudig vastleggen en zowel gebruiken voor de levering als voor de interne administratie.</li>
+</ul>
+</li>
+<li><p>Het aantal conversies tussen systemen en daardoor bewerkelijke versiebeheer. <a href="#dfn-kp-17" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-17-1">KP-17</a></p>
+<ul>
+<li>De geometrie moest in GML worden aangeleverd. De opdrachtnemer heeft hiervoor de interne 3D BIM-modellen omgezet naar 2D CAD tekeningen en daarna naar een GIS formaat. Vervolgens is m.b.t. ArcGIS een GML geproduceerd. De opdrachtnemer zou liever direct geodatabase bestanden uitleveren, dat is eenvoudiger.</li>
+<li>In de SE tool werden de objecten in het project geclassificeerd en werd hier data over ingevoerd. Ook werd een koppeling gemaakt met de geometrische data en de documenten die in een DMS stonden. Een externe partij (OA3) heeft vervolgens een analyse gedaan op de data en de OTL, en een COINS container geëxporteerd vanuit Relatics.</li>
+</ul>
+</li>
+<li><p>De OTL werkte soms beperkend. <a href="#dfn-kp-21" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-21-1">KP-21</a></p>
+<ul>
+<li>Bijvoorbeeld als lijstwaardes niet de juiste waardes bevatten, dan konden deze niet correct worden ingevuld.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>De aannemer suggereert om óók richting te geven aan het leveren van de informatie in native formaten (bijv. in .rvt). Het liefst wil de opdrachnemer zo min mogelijk exporteren en transformeren, om informatieverlies te beperken.<ul>
+<li>Ook is de aannemer bekend met uitwisseling d.m.v. geodatabase files (GDB), deze werkwijze zouden zij graag gestandaardiseerd zien. Hoewel in de ILS nog COINS staat wordt in het project soms afgesproken om in GDB te gaan leveren.</li>
+</ul>
+</li>
+</ul>
+</section><section id="x7-1-t-m-7-4-levering-van-het-informatiemodel"><div class="header-wrapper"><h3 id="d-6-7-1-t-m-7-4-levering-van-het-informatiemodel"><bdi class="secno">D.6 </bdi>7.1 t/m 7.4 Levering van het informatiemodel</h3><a class="self-link" href="#x7-1-t-m-7-4-levering-van-het-informatiemodel" aria-label="Permalink for Appendix D.6"></a></div>
+<ul>
+<li>Doorlooptijd van het terugkoppelen van validatieresultaten <a href="#dfn-kp-27" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-27-1">KP-27</a><ul>
+<li><p>De doorlooptijd van de controles wisselde sterk en werd door de opdrachtnemer als lang ervaren.</p>
+</li>
+<li><p>De COINS levering werd automatisch technisch gecontroleerd door opdrachtgever. De feedback hieruit (lees: fouten) werden overgedragen in een excellijst.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Door de opdrachtgever is de data ook inhoudelijk gecontroleerd. Daar kwamen afwijkingen in de geometrie uit, die later hersteld zijn.</p>
+<ul>
+<li><p>Opdrachtnemer had graag zelf (direct) de mogelijkheid gehad om te controleren. Uiteindelijk is er voor opdrachtnemer een gastaccount aangemaakt, waardoor problemen eerder konden worden gesignaleerd en opgelost.</p>
+</li>
+<li><p>Dubbelingen in oplevering <a href="#dfn-kp-30" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-30-1">KP-30</a></p>
+<ul>
+<li>De levering van de informatie vond plaats doormiddel van COINS, maar daarnaast werd ook een traditioneel opleverdossier geleverd.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>N.v.t.</li>
+</ul>
+</section></section>
+    <section class="appendix informative" id="interview-met-on2"><div class="header-wrapper"><h2 id="e-interview-met-on2"><bdi class="secno">E. </bdi>Interview met ON2</h2><a class="self-link" href="#interview-met-on2" aria-label="Permalink for Appendix E."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
+<p>Datum: 06-04-2022</p>
+<p>Aanwezig:</p>
+<ul>
+<li>ON2</li>
+<li>Rakesh Kalpoe - Arcadis</li>
+<li>Lucas Verhelst - BIM-Connected</li>
+</ul>
+<section id="introductie-2"><div class="header-wrapper"><h3 id="e-1-introductie"><bdi class="secno">E.1 </bdi>Introductie</h3><a class="self-link" href="#introductie-2" aria-label="Permalink for Appendix E.1"></a></div>
+<ul>
+<li>Arcadis licht het plan voor de meeting toe: Eerst wordt de vragenlijst in het algemeen besproken, waarna de benoemde knelpunten in de lijst puntsgewijs worden besproken aan de hand van een paar begeleidende sheets. De presentatie worden tijdens de sessie tevens gebruikt om de kern van het gesprek vast te leggen.</li>
+</ul>
+</section><section id="vragenlijst-1"><div class="header-wrapper"><h3 id="e-2-vragenlijst"><bdi class="secno">E.2 </bdi>Vragenlijst</h3><a class="self-link" href="#vragenlijst-1" aria-label="Permalink for Appendix E.2"></a></div>
+<ul>
+<li>ON2 stuurt de vragenlijst achteraf op. Wel geeft ON2 aan dat één serie aan stappen was niet uitgevoerd, namelijk stap 3. Het samenstellen van de inschrijving middels: <ul>
+<li>Het BIM-uitvoeringsplan</li>
+<li>Een overzicht van de beoordeling van de taakgroepen </li>
+<li>Het mobilisatieplan en </li>
+<li>De risicobeoordeling m.b.t. informatielevering.</li>
+</ul>
+</li>
+<li>Ten tijde van de gunning was de informatievraag immers niet bekend. Zo werd er wél aangekondigd dat het verplicht was om de informatielevering te laten plaatsvinden via COINS, maar was de OTL nog niet uitgeleverd. Er waren drie leveringen gevraagd: proeflevering, levering van het ontwerp aan het eind van de ontwerp en levering van het gebouwde ten tijde van oplevering
+De uitvraag legde de focus op de uitwisseling middels COINS i.p.v. informatiebehoefte middels de OTL. 
+Na gunning is dit (in goed overleg) wél ingeregeld.</li>
+<li>De antwoorden in de vragenlijst gelden voor het project: P2.</li>
+</ul>
+</section><section id="x3-1-t-m-3-7-inschrijving-0"><div class="header-wrapper"><h3 id="e-3-3-1-t-m-3-7-inschrijving"><bdi class="secno">E.3 </bdi>3.1 t/m 3.7 Inschrijving</h3><a class="self-link" href="#x3-1-t-m-3-7-inschrijving-0" aria-label="Permalink for Appendix E.3"></a></div>
+<p><strong>Welke knelpunten zijn er geconstateerd in de projecten?</strong></p>
+<ul>
+<li>De verplichting om via COINS uit te wisselen viel niet op in de uitvraag. <a href="#dfn-kp-1" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-1-1">KP-1</a><ul>
+<li>De VSE refereerde naar de ILS (die duidelijk was opgesteld) waarin vervolgens de verplichtingen rondom COINS verdekt waren vermeld. 
+Ook omdat de term ‘’COINS’’ niet bekend was binnen de organisatie werd er initieel weinig aandacht aan geschonken in het vormgeven van de aanbieding. Het leverde de opdrachtnemer ná gunning onverwachte kosten op.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>De aannemer suggereert om een (lichte) vorm van o.a. een BIM-uitvoeringsplan contractueel uit te vragen. Hierdoor wordt de interne organisatie geforceerd om in een vroeg stadium met het juiste team de voorbereidende stappen te treffen (mocht het project worden gegund).</li>
+</ul>
+</section><section id="x4-1-t-m-4-7-gunning-1"><div class="header-wrapper"><h3 id="e-4-4-1-t-m-4-7-gunning"><bdi class="secno">E.4 </bdi>4.1 t/m 4.7 Gunning</h3><a class="self-link" href="#x4-1-t-m-4-7-gunning-1" aria-label="Permalink for Appendix E.4"></a></div>
+<p><strong>Welke knelpunten zijn er geconstateerd in de projecten?</strong></p>
+<ul>
+<li><p>Onduidelijkheid in welke informatie moest worden geleverd. <a href="#dfn-kp-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-6-2">KP-6</a></p>
+<ul>
+<li><p>De OTL werd niet aangeleverd ten tijde van de uitvraag. Hierdoor was het in eerste instantie onduidelijk aan welke informatievraag zij moesten voldoen. Middels werksessies met de opdrachtgever is afgestemd </p>
+<ul>
+<li>welke eigenschappen er van welke objecttypen dienden te worden geleverd</li>
+<li>In welke onderverdeling(en) de objecten moesten worden gerangschikt.</li>
+</ul>
+</li>
+<li><p>Toen de informatiebehoefte was gedefinieerd, konden de taken voor het produceren van de informatie alsnog worden uitgezet.</p>
+</li>
+</ul>
+</li>
+<li><p>Geen levering van bestaande informatie <a href="#dfn-kp-7" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-7-2">KP-7</a></p>
+<ul>
+<li>Door <abbr title="Opdrachtgever">OG</abbr> werd de bestaande informatie over het projectgebied niet aangeleverd. Daardoor moest die informatie bij de start van het project worden ingewonnen.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>N.v.t.</li>
+</ul>
+</section><section id="x6-1-t-m-6-5-productie-van-informatie-door-samenwerking-0"><div class="header-wrapper"><h3 id="e-5-6-1-t-m-6-5-productie-van-informatie-door-samenwerking"><bdi class="secno">E.5 </bdi>6.1 t/m 6.5 Productie van informatie door samenwerking</h3><a class="self-link" href="#x6-1-t-m-6-5-productie-van-informatie-door-samenwerking-0" aria-label="Permalink for Appendix E.5"></a></div>
+<p><strong>Welke knelpunten zijn er geconstateerd in de projecten?</strong></p>
+<ul>
+<li><p>Informatie wordt vastgelegd vanuit verschillende perspectieven. <a href="#dfn-kp-14" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-14-2">KP-14</a></p>
+<ul>
+<li>De eigen informatievraag voor de ontwerp-en realisatiefase verschilde van de informatievraag voor de beheerfase. Het verraste hoeveel informatie er ‘’extra’’ diende te worden geproduceerd voor de informatievraag voor de beheerfase.</li>
+<li>Voor elk perspectief werd in een afzonderlijk SE systeem (van OA2) informatie geproduceerd. Het synchroniseren tussen deze systemen kostte de opdrachtnemer extra (onverwachte) manuren. De objecten (duizenden) in de omgeving waaruit de OTL gebaseerde levering werd gegenereerd werden gekoppeld aan de SBS objecten (tientallen) middels een speciaal daarvoor opgenomen veld en up to date gehouden d.m.v.een importsheet. </li>
+<li>De SBS bevatte veel minder objecten dan de OTL gebaseerde levering om dat in de SBS veel gebruik wordt gemaakt van opbossingen, waar in de OTL gebaseerde dataset alle individuen bestaan. De classificatie van de SBS en de OTL gebaseerde leveringen maakten gebruik van andere objecttypenstructuren, waardoor ze niet te combineren waren.</li>
+</ul>
+</li>
+<li><p>Het aantal conversies tussen systemen en daardoor bewerkelijke versiebeheer. <a href="#dfn-kp-17" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-17-2">KP-17</a></p>
+<ul>
+<li>De geometrische informatie werd ingewonnen en geproduceerd door een onderaannemer (OA4). Dit werd aangeleverd in dwg-formaat dat werd omgezet in een gml-formaat. Op basis van dit gml-formaat werden er exports gegenereerd in csv-formaat, zodat in de SE tool de geometrische data (o.a. de GML UUIDs) konden worden geïmporteerd en gekoppeld aan de fysieke objecten. Middels een SE tool werd (via een COINS-exporter) een levering gedaan in ccr-formaat.						</li>
+<li>Bij de opbouw van geometrische data liep men tegen technische problemen aan.<ul>
+<li>Bij het toevoegen van de as-built informatie ontstonden nieuwe id’s. Dit gebeurde in de geometrische data toen daar de as-built situatie in werd verwerkt.</li>
+<li>Bij de omzetting van CAD naar GIS kwamen er gaten in de GIS laag. Dit is opgelost in de GIS software</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Onduidelijkheid in het gebruik van de OTL <a href="#dfn-kp-22" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-22-1">KP-22</a></p>
+<ul>
+<li>Op het eerste oog was het niet altijd duidelijk wat de betekenis was van OTL concepten om de instanties naartoe te classificeren.</li>
+<li>Een voorbeeld hiervan betrof de OTL documenttypen. Deze waren vrij abstract zoals "ontwerptekening". Voor de opdrachtnemer was het niet duidelijk of zij een aanzicht, plattegrond, model of juist alles mee daarnaartoe konden classificeren.</li>
+<li>Ook was het niet altijd duidelijk hoe er diende te worden gedecomponeerd volgens de OTL.</li>
+<li>Middels voorbeelden (vanuit de opdrachtnemer) werd het per sessie duidelijk hoe de OTL decompositie diende te worden gevolgd, wat de betekenis was van de concepten en hoe de eigenschappen moesten worden ingevuld. </li>
+<li>Om tot dit voorbeeld te komen is een van de kruisingen vanuit Autodesk Civil3D omgezet in GML via ArcGIS (een bestand per objecttype. Daarbij zijn de eigenschappen die al in het CAD aanwezig waren overgenomen in de GML. Vervolgens zijn alle objecten aangemaakt in de SE tool en gekoppeld. Daarna werden alle objecten onderling gerelateerd om een decompositie te vormen. De COINS producer van OA1 is vervolgens gebruikt om de container te genereren. Over deze proeflevering is vervolgens afstemming geweest met de opdrachtgever.</li>
+</ul>
+</li>
+<li><p>Onduidelijkheid hoe eigenschappen ingevuld moesten worden (conform de OTL). <a href="#dfn-kp-23" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-23-1">KP-23</a></p>
+<ul>
+<li>Er waren lijsten beschikbaar met welke eigenschappen moesten worden ingevuld bij elk object, maar daaruit werd niet duidelijk aan welke eisen de ingevulde waarde moest voldoen.</li>
+<li>Er waren geen gedetaileerde eisen aan de GIS data (bijv. tekenrichting)</li>
+</ul>
+</li>
+<li><p>Onduidelijkheid over de inhoud van documenten zelf en hoe deze ingevuld moesten worden (conform de OTL). <a href="#dfn-kp-24" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-24-1">KP-24</a></p>
+<ul>
+<li>Voor de documenten was ook niet duidelijk welk document werd verwacht bij een bepaald objecttype</li>
+<li><abbr title="Opdrachtnemer">ON</abbr> heeft uiteindelijk naar eigen inzicht documenten geleverd</li>
+<li>Het lijstje met documenttypen waarmee het type document kon worden aangegeven was erg summier.</li>
+<li>Waar de inhoud van de documenten aan moest voldoen was niet duidelijk.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>Er is behoefte aan informatie over het scheiden van geometrische data met andere objectdata.</li>
+</ul>
+</section><section id="x7-1-t-m-7-4-levering-van-het-informatiemodel-0"><div class="header-wrapper"><h3 id="e-6-7-1-t-m-7-4-levering-van-het-informatiemodel"><bdi class="secno">E.6 </bdi>7.1 t/m 7.4 Levering van het informatiemodel</h3><a class="self-link" href="#x7-1-t-m-7-4-levering-van-het-informatiemodel-0" aria-label="Permalink for Appendix E.6"></a></div>
+<ul>
+<li>Onduidelijke validatiemethode. <a href="#dfn-kp-26" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-26-1">KP-26</a><ul>
+<li>Voor gunning was niet duidelijk hoe en op welke (technische) acceptatiecriteria de levering zou worden gevalideerd door opdrachtgever. Zo was niet duidelijk hoe de geometrie-instanaties moest worden opgebouwd (bijv. dat een vlak in een bepaalde richting dient te worden getekend) of welke naamgeving-conventie er moest worden toegepast voor de instanties. </li>
+<li>Uiteindelijk contracteerde opdrachtnemer (OA1) voor de eigen OTL validatie dezelfde partij die informatieleveringen valideerde namens opdrachtgever.</li>
+</ul>
+</li>
+<li>Inflexibiliteit door koppeling van informatieleveringen aan betalingstermijnen. <a href="#dfn-kp-29" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-29-1">KP-29</a><ul>
+<li>In dit project bleek dat er nog buiten informatie moest worden ingewonnen (door de onderaannemer), terwijl de informatie al moest worden geleverd vanwege de planning van de betalingstermijnen. Wanneer de betalingstermijn was verstreken werd er vanuit de opdrachtnemer immers standaard geen informatie meer nageleverd, aangezien er (contractueel) geen betaling tegenover stond.</li>
+</ul>
+</li>
+<li>Dubbelingen in oplevering. <a href="#dfn-kp-30" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-30-2">KP-30</a><ul>
+<li>In dit project diende (vrijwel) dezelfde levering tweemaal te worden opgeleverd, namelijk als een traditionele dossier én als COINS container. Zodoende werden de documenten dubbel geleverd ten opzichte van elkaar.</li>
+<li>Omdat een deel van de informatie ook was bedoeld voor een gemeente was er een splitsing gemaakt in de leveringen. Zo was er in iedere afzonderlijke levering een hoofdmap voor elke opdrachtgever geïntroduceerd met daarin de documenten die de opdrachtgever wenste te ontvangen. Ofwel, er zaten ook dubbelingen tussen de afzonderlijke leveringen in het traditionele dossier.</li>
+<li>Deze dubbele uitvraag (traditioneel, COINS) was bij uitvraag bekend.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>De aannemer suggereert om de optie op naleveringen (m.a.w. standaard restpunten) in de uitvraag mee te nemen. Dit stelt de aannemer in staat om van te voren een budget in te ramen om deze naleveringen te verrichten.</li>
+</ul>
+</section></section>
+    <section class="appendix informative" id="interview-met-on3"><div class="header-wrapper"><h2 id="f-interview-met-on3"><bdi class="secno">F. </bdi>Interview met ON3</h2><a class="self-link" href="#interview-met-on3" aria-label="Permalink for Appendix F."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
+<p>Datum: 08-04-2022</p>
+<p>Aanwezig: </p>
+<ul>
+<li>ON3</li>
+<li>Rakesh Kalpoe - Arcadis</li>
+<li>Lucas Verhelst - BIM-Connected</li>
+</ul>
+<section id="introductie-3"><div class="header-wrapper"><h3 id="f-1-introductie"><bdi class="secno">F.1 </bdi>Introductie</h3><a class="self-link" href="#introductie-3" aria-label="Permalink for Appendix F.1"></a></div>
+<ul>
+<li>Ter voorbereiding heeft ON3 per processtap de knelpunten benoemd middels de (op de ISO19650 gebaseerde) vragenlijst.</li>
+<li>Rakesh licht het plan voor de meeting toe: Eerst wordt de vragenlijst in het algemeen besproken, waarna de benoemde knelpunten in de lijst puntsgewijs worden besproken aan de hand van een paar begeleidende sheets. De presentatie wordt tijdens de sessie tevens gebruikt om de kern van het gesprek vast te leggen.</li>
+</ul>
+</section><section id="vragenlijst-2"><div class="header-wrapper"><h3 id="f-2-vragenlijst"><bdi class="secno">F.2 </bdi>Vragenlijst</h3><a class="self-link" href="#vragenlijst-2" aria-label="Permalink for Appendix F.2"></a></div>
+<ul>
+<li>ON3 gaf aan dat de vragenlijst prima was in te vullen. Eén stap was niet uitgevoerd, namelijk stap 3.7 Het samenstellen van de inschrijving middels: <ul>
+<li>Het BIM-uitvoeringsplan</li>
+<li>Een overzicht van de beoordeling van de taakgroepen </li>
+<li>Het mobilisatieplan en </li>
+<li>De risicobeoordeling m.b.t. informatielevering.
+Dit was immers niet contractueel was uitgevraagd omdat het een pilot- project betrof.</li>
+</ul>
+</li>
+<li>De antwoorden in de vragenlijst gelden voor het project: P3</li>
+</ul>
+</section><section id="x3-1-t-m-3-7-inschrijving-1"><div class="header-wrapper"><h3 id="f-3-3-1-t-m-3-7-inschrijving"><bdi class="secno">F.3 </bdi>3.1 t/m 3.7 Inschrijving</h3><a class="self-link" href="#x3-1-t-m-3-7-inschrijving-1" aria-label="Permalink for Appendix F.3"></a></div>
+<p><strong>Welke knelpunten zijn er geconstateerd in de projecten?</strong></p>
+<ul>
+<li><p>De verplichting om via COINS uit te wisselen viel niet op in de uitvraag. <a href="#dfn-kp-1" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-1-2">KP-1</a></p>
+<ul>
+<li>De enige aanwijzing t.a.v. de verplichting was verwoord in de eis om ‘’een BIM-omgeving in te richten conform COINS formaat’’. </li>
+<li>Ook omdat de term "COINS" niet bekend was binnen de organisatie werd er initieel weinig aandacht aan geschonken in het vormgeven van de aanbieding. Een andere reden hiervoor was dat het een ‘’standaard uitvraag’’ betrof waarbij werd beoordeeld op de laagste prijs.</li>
+<li>Het leverde de opdrachtnemer ná gunning onverwachte kosten op.</li>
+</ul>
+</li>
+<li><p>Er werd geen BIM-uitvoeringsplan, Mobilisatieplan en Risicoanalyse uitgevraagd in de projecten door de opdrachtgever. <a href="#dfn-kp-2" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-2-3">KP-2</a></p>
+<ul>
+<li>Doordat de opdrachtnemer niet contractueel verplicht was om de plannen samen te stellen, was er intern verminderd zicht op de  verantwoordelijkheden en te leveren capaciteit en vaardigheden ten tijde van inschrijven.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>De aannemer suggereert om een (lichte) vorm van o.a. een BIM-uitvoeringsplan contractueel uit te vragen. Hierdoor wordt de interne organisatie geforceerd om in een vroeg stadium met het juiste team de voorbereidende stappen te treffen (mocht het project worden gegund).</li>
+</ul>
+</section><section id="x4-1-t-m-4-7-gunning-2"><div class="header-wrapper"><h3 id="f-4-4-1-t-m-4-7-gunning"><bdi class="secno">F.4 </bdi>4.1 t/m 4.7 Gunning</h3><a class="self-link" href="#x4-1-t-m-4-7-gunning-2" aria-label="Permalink for Appendix F.4"></a></div>
+<p><strong>Welke knelpunten zijn er geconstateerd in de projecten?</strong></p>
+<ul>
+<li>Onduidelijkheid in welke informatie moest worden geleverd. <a href="#dfn-kp-6" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-6-3">KP-6</a><ul>
+<li>Ondanks dat de OTL werd aangehaald in de ILS, werd de daadwerkelijke OTL niet aangeleverd ten tijde van de uitvraag. Hierdoor was het in eerste instantie onduidelijk aan welke informatievraag zij moesten voldoen. Toen deze wel ter beschikking werd gesteld, bleek het van een zodanige andere versie te zijn dat de software die was gebruikt in voorgaande pilot-projecten, projectspecifiek moest worden aangepast.</li>
+<li>De kosten die hiermee gemoeid waren, nam de <abbr title="Opdrachtgever">OG</abbr> voor haar rekening.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>N.v.t.</li>
+</ul>
+</section><section id="x6-1-t-m-6-5-productie-van-informatie-door-samenwerking-1"><div class="header-wrapper"><h3 id="f-5-6-1-t-m-6-5-productie-van-informatie-door-samenwerking"><bdi class="secno">F.5 </bdi>6.1 t/m 6.5 Productie van informatie door samenwerking</h3><a class="self-link" href="#x6-1-t-m-6-5-productie-van-informatie-door-samenwerking-1" aria-label="Permalink for Appendix F.5"></a></div>
+<p><strong>Welke knelpunten zijn er geconstateerd in de projecten?</strong></p>
+<ul>
+<li><p>As is informatie was niet zomaar bruikbaar. <a href="#dfn-kp-13" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-13-1">KP-13</a></p>
+<ul>
+<li>Informatie over de as-is situatie werd na gunning geleverd in een COINS-container, deze is door OA1 omgezet in bruikbare formaten (o.a. excelsheets).</li>
+<li>De levering die de aannemer moest doen betrof een aangepaste as-is, waarin de wijzigingen zichtbaar waren t.o.v. de situatie voor uitvoering.</li>
+<li>Informatie over de decompositie ontbrak in de as-is levering. Daardoor was de opbouw van het bestaande wegdek niet te achterhalen.</li>
+</ul>
+</li>
+<li><p>Informatie wordt vastgelegd vanuit verschillende perspectieven. <a href="#dfn-kp-14" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-14-3">KP-14</a></p>
+<ul>
+<li>Functioneel en fysiek zijn in de OTL niet gescheiden.</li>
+<li>Bijv. De levenscyclus van een inrit (functioneel) die verplaatst wordt is moeilijk te vangen, omdat de fysieke objecten vervallen.</li>
+</ul>
+</li>
+<li><p>Extra productie – en levering van informatie. <a href="#dfn-kp-16" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-16-1">KP-16</a></p>
+<ul>
+<li>Het bleek dat er geen informatie hoefde te worden geleverd voor markeringen. Omwille van interne standaardprocessen tussen aannemer en onderaannemer is er toch informatie van markering geproduceerd (immers; de aannemer dient bijvoorbeeld wél te weten "welke verf er wordt gebruikt". Deze informatie is als document toch opgeleverd (zonder dat daar de opdrachtgever van de op de hoogte is).</li>
+</ul>
+</li>
+<li><p>Het aantal conversies tussen systemen en daardoor bewerkelijke versiebeheer. <a href="#dfn-kp-17" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-17-3">KP-17</a></p>
+<ul>
+<li>Om de COINS-container te genereren vanuit Excel en GML bestanden is in samenwerking met OA1 software ontwikkeld. Voor elk objecttype werd een losse exceltabel geleverd t.b.v. het genereren van de container.</li>
+<li>De Excelbestanden zijn met de hand opgebouwd, in aanvulling op de as-is informatie. De GML bestanden zijn gegenereerd vanuit Autocad. De data in de excelbestanden werd handmatig synchroon gehouden met het ontwerp (Civil3D)</li>
+<li>Onderaannemers kregen een template lijst waarin zij gegevens konden invullen t.b.v. de COINS levering. Zij vonden dit gemakkelijker dan een traditionele levering.</li>
+<li>Documenten werden middels de bestandsnaam gekoppeld aan de excel data t.b.v. het opbouwen van de COINS-container.</li>
+<li>Toen alles gereed was ging het opbouwen van de levering snel, ON3 was hier in 2 dagen mee klaar.</li>
+</ul>
+</li>
+<li><p>De OTL laat zich lastig doorheen navigeren. <a href="#dfn-kp-18" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-18-2">KP-18</a></p>
+<ul>
+<li>Het bleek dat door de codering van OTL typen de OTL lastig leesbaar was. Wanneer bijvoorbeeld de code van een objecttype werd ingevuld in het zoekvenster, kwamen er (veel) meer resultaten terug dan verwacht.</li>
+<li>De opdrachtnemer had tijdelijke toegang nodig tot de interne OTL omgeving van de opdrachtgever om de OTL te kunnen begrijpen. Van properties waren bijvoorbeeld alleen de technische codes bekend, niet de labels die voor mensen bruikbaar zijn.</li>
+</ul>
+</li>
+<li><p>De OTL was (plaatselijk) onvoldoende gedetailleerd. <a href="#dfn-kp-19" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-19-1">KP-19</a></p>
+<ul>
+<li>Het formaat van de in te vullen waarden in een bepaald veld moest bijvoorbeeld worden afgeleid uit de geleverde data, omdat deze niet expliciet was vastgelegd.</li>
+<li>De geometrie van de verharding werd vastgelegd op wegvak niveau, niet op het niveau van de asfaltlaag. Dit gaf problemen omdat de geometrie van het asfalt per laag anders is. </li>
+<li>Door de indeling in wegvakken was uiteindelijk onbekend waar de fysieke grens tussen twee asfaltmengsels lag bij de rotonde.</li>
+<li>Het was onduidelijk wat er moest gebeuren met objecten die tijdens de realisatie zouden te komen vervallen. Deze zijn uiteindelijk op “expired” gezet. Dit leidde tot situaties waarbij er twee (versies) van een lichtmast op dezelfde plek stonden. </li>
+<li>Opdrachtnemer vond het opvallend dat er niets werd uitgevraagd op het gebied van markeringen.</li>
+</ul>
+</li>
+<li><p>De OTL veranderde tussentijds <a href="#dfn-kp-20" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-20-2">KP-20</a></p>
+<ul>
+<li>De aanpassingen die daar uit voortkwamen kostten veel tijd.</li>
+<li>Ook de informatiebehoefte veranderde, waardoor extra inwinning nodig was</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>De COINS-viewer van <abbr title="Opdrachtgever">OG</abbr> die werd gebruikt voor het integraal inspecteren van de (alfanumerieke en geometrische) informatie in de levering bleek zeer nuttig te zijn. De wens is om de informatie óók in een dergelijke omgeving te bewerken. Opdrachtnemer zou deze omgeving hiet liefst benaderen via de browser.</li>
+<li>De aannemer suggereert om informatie die de opdrachtgever kan invullen ook daadwerkelijk invult. Denk aan de eigenschap "beheerder" van een weg-object. Op deze manier verkrijg je in een project meer een samenwerking om de OTL juist toe te passen om informatie te produceren.</li>
+</ul>
+</section><section id="x7-1-t-m-7-4-levering-van-het-informatiemodel-1"><div class="header-wrapper"><h3 id="f-6-7-1-t-m-7-4-levering-van-het-informatiemodel"><bdi class="secno">F.6 </bdi>7.1 t/m 7.4 Levering van het informatiemodel</h3><a class="self-link" href="#x7-1-t-m-7-4-levering-van-het-informatiemodel-1" aria-label="Permalink for Appendix F.6"></a></div>
+<ul>
+<li><p>De interne controle door <abbr title="Opdrachtnemer">ON</abbr> vond handmatig plaats <a href="#dfn-kp-25" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-25-1">KP-25</a></p>
+<ul>
+<li>Dit deed men door deze te bekijken in de viewer van OA1 en door steekproeven te nemen.</li>
+</ul>
+</li>
+<li><p>Veel proefleveringen (en doorlooptijd) benodigd voor een bruikbare configuratie <a href="#dfn-kp-28" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-28-1">KP-28</a></p>
+<ul>
+<li>In totaal zijn er 8 proefleveringen geweest, de doorlooptijd was 12 maanden.</li>
+<li>Doorlooptijd was lang omdat zowel de aanpassingen van de opdrachtnemer als de beoordeling door opdrachtgever tijd in beslag namen.</li>
+</ul>
+</li>
+<li><p>Dubbelingen in oplevering <a href="#dfn-kp-30" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-30-3">KP-30</a></p>
+<ul>
+<li>In dit project diende (vrijwel) dezelfde levering tweemaal te worden opgeleverd, namelijk als een traditionele dossier én als COINS container. Zodoende werden de documenten dubbel geleverd ten opzichte van elkaar. </li>
+<li>Deze dubbele uitvraag (traditioneel, COINS) was bij uitvraag bekend.</li>
+<li>Enkele documenten (bijv financiele afwikkeling) konden niet in de COINS container worden gezet. Die documenten zijn dus alleen op de traditionele manier geleverd.</li>
+<li>Voor de formele leveringen werd VISI gebruikt, daarbij was de afspraak om de bestanden eerst via e-mail goed te krijgen en dan pas formeel vast te leggen in VISI.</li>
+<li>Opvallend was dat er een uitdraai van VISI in het opleverdossier moest worden opgenomen, en dat het opleverdossier ook in VISI moest staan. Dat is een administratieve kringverwijzing.</li>
+</ul>
+</li>
+<li><p>De opdrachtgever heeft de data zelf nog aan moeten passen.<a href="#dfn-kp-31" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-kp-31-1">KP-31</a></p>
+<ul>
+<li>Voor die bewerkingen van de GIS data werd QGIS gebruikt.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Welke behoefte is er voor landelijke afspraken?</strong></p>
+<ul>
+<li>N.v.t.</li>
+</ul>
+</section></section>
+
+  
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+<script id="annotation-service-runtime">(() => {
+// @ts-check
+const SETTING_KEY = "annotation-service-hypothesis";
+const SETTING_VALUE_ALLOWED = "allowed";
+const hClientDefault = {
+  openSidebar: false,
+  showHighlights: true,
+  theme: "classic",
+  branding: {
+    accentColor: "rgb(0, 157, 224)",
+    appBackgroundColor: "white",
+    ctaBackgroundColor: "rgb(255, 110, 26)",
+    ctaTextColor: "white",
+    selectionFontFamily: "'Museo Sans', Museo, Helvetica, Arial, sans serif",
+    annotationFontFamily: "'Museo Sans', Museo, Helvetica, Arial, sans serif",
+  },
+};
+
+if (document.respec) {
+  document.respec.ready.then(render);
+} else {
+  render();
+}
+
+/** Render the placeholder (Load Service Button) or annotation info (# annotations, Show Annotation Button). */
+function render() {
+  if (localStorage.getItem(SETTING_KEY) == SETTING_VALUE_ALLOWED) {
+    renderAnnotationServiceInfo();
+  } else {
+    renderPlaceholder();
+  }
+}
+
+/** Render Load Service Button, with privacy info. */
+function renderPlaceholder() {
+  localStorage.removeItem(SETTING_KEY);
+
+  /** @type {HTMLElement} */
+  const placeholder = document.querySelector("#annotation-service-placeholder");
+  placeholder.hidden = false;
+
+  const listener = loadButtonListener();
+  document
+    .querySelector("[data-load-annotation-service]")
+    .addEventListener("keydown", listener);
+  document
+    .querySelector("[data-load-annotation-service]")
+    .addEventListener("click", listener);
+
+  /** @type {HTMLElement} */
+  const serviceInfo = document.querySelector("#annotation-service-loaded");
+  serviceInfo.hidden = true;
+}
+
+function loadButtonListener() {
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLButtonElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    target.disabled = true;
+    localStorage.setItem(SETTING_KEY, SETTING_VALUE_ALLOWED);
+    renderAnnotationServiceInfo();
+  };
+}
+
+function unloadButtonListener() {
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLButtonElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    target.disabled = true;
+    localStorage.removeItem(SETTING_KEY);
+    removeHScript();
+  };
+}
+
+function renderAnnotationServiceInfo() {
+  addHConfig(document);
+  addHScript(document);
+}
+
+/**
+ *
+ * @param {Document} doc
+ * @param {*} conf
+ */
+function addHScript(doc, conf) {
+  const script = doc.createElement("script");
+  script.src = "https://hypothes.is/embed.js";
+  script.async = true;
+  doc.body.appendChild(script);
+
+  script.addEventListener("load", event => {
+    /** @type {HTMLElement} */
+    const placeholder = document.querySelector(
+      "#annotation-service-placeholder"
+    );
+    placeholder.hidden = true;
+
+    /** @type {HTMLElement} */
+    const serviceInfo = document.querySelector("#annotation-service-loaded");
+    serviceInfo.hidden = false;
+
+    const unloadListener = unloadButtonListener();
+    document
+      .querySelector("[data-unload-annotation-service]")
+      .addEventListener("keydown", unloadListener);
+    document
+      .querySelector("[data-unload-annotation-service]")
+      .addEventListener("click", unloadListener);
+  });
+}
+
+/**
+ * Retract Hypothesis permission.
+ */
+function removeHScript() {
+  // Deleting the hypothesis-script, does not undo its changes, listeners etc.
+  // Instead, reload the frame.
+  window.location.reload();
+}
+
+/**
+ *
+ * @param {Document} doc
+ * @param {*} conf
+ */
+function addHConfig(doc, conf) {
+  const script = doc.createElement("script");
+  script.className = "js-hypothesis-config";
+  script.type = "application/json";
+  script.innerText = JSON.stringify(hClientDefault);
+  doc.body.appendChild(script);
+}
+})()</script><section id="references" class="appendix"><div class="header-wrapper"><h2 id="g-referenties"><bdi class="secno">G. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix G."></a></div><section id="normatieve-referenties"><div class="header-wrapper"><h3 id="g-1-normatieve-referenties"><bdi class="secno">G.1 </bdi>Normatieve referenties</h3><a class="self-link" href="#normatieve-referenties" aria-label="Permalink for Appendix G.1"></a></div>
+    
+    <dl class="bibliography"><dt id="bib-iso19650_2">[ISO19650_2]</dt><dd>
+      <a href="https://www.iso.org/standard/68080.html"><cite>ISO 19650-2:2018 Organization and digitization of information about buildings and civil engineering works, including building information modelling (BIM) — Information management using building information modelling — Part 2: Delivery phase of the assets</cite></a>.  ISO. Actueel. URL: <a href="https://www.iso.org/standard/68080.html">https://www.iso.org/standard/68080.html</a>
+    </dd><dt id="bib-raci">[RACI]</dt><dd>
+      <a href="https://nl.wikipedia.org/wiki/RACI-model"><cite>ISO RACI-model</cite></a>.  Wikipedia. Actueel. URL: <a href="https://nl.wikipedia.org/wiki/RACI-model">https://nl.wikipedia.org/wiki/RACI-model</a>
+    </dd></dl>
+  </section><section id="informatieve-referenties"><div class="header-wrapper"><h3 id="g-2-informatieve-referenties"><bdi class="secno">G.2 </bdi>Informatieve referenties</h3><a class="self-link" href="#informatieve-referenties" aria-label="Permalink for Appendix G.2"></a></div>
+    
+    <dl class="bibliography"><dt id="bib-rdf11-primer">[rdf11-primer]</dt><dd>
+      <a href="https://www.w3.org/TR/rdf11-primer/"><cite>RDF 1.1 Primer</cite></a>. Guus Schreiber; Yves Raimond.  W3C. 24 June 2014. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/rdf11-primer/">https://www.w3.org/TR/rdf11-primer/</a>
+    </dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-1" aria-label="Links in this document to definition: S-1">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-1" aria-label="Permalink for definition: S-1. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-1-1" aria-label="Links in this document to definition: S-1.1">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-1-1" aria-label="Permalink for definition: S-1.1. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-1-2" aria-label="Links in this document to definition: S-1.2">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-1-2" aria-label="Permalink for definition: S-1.2. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-1-3" aria-label="Links in this document to definition: S-1.3">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-1-3" aria-label="Permalink for definition: S-1.3. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-1-4" aria-label="Links in this document to definition: S-1.4">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-1-4" aria-label="Permalink for definition: S-1.4. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-1-5" aria-label="Links in this document to definition: S-1.5">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-1-5" aria-label="Permalink for definition: S-1.5. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-1-6" aria-label="Links in this document to definition: S-1.6">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-1-6" aria-label="Permalink for definition: S-1.6. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-1-7" aria-label="Links in this document to definition: S-1.7">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-1-7" aria-label="Permalink for definition: S-1.7. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-1-8" aria-label="Links in this document to definition: S-1.8">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-1-8" aria-label="Permalink for definition: S-1.8. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-2" aria-label="Links in this document to definition: S-2">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-2" aria-label="Permalink for definition: S-2. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-s-2-1" title="§ 3.1 Knelpunten uit interviews">§ 3.1 Knelpunten uit interviews</a> <a href="#ref-for-dfn-s-2-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-s-2-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-2-1" aria-label="Links in this document to definition: S-2.1">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-2-1" aria-label="Permalink for definition: S-2.1. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-2-2" aria-label="Links in this document to definition: S-2.2">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-2-2" aria-label="Permalink for definition: S-2.2. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-2-3" aria-label="Links in this document to definition: S-2.3">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-2-3" aria-label="Permalink for definition: S-2.3. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-2-4" aria-label="Links in this document to definition: S-2.4">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-2-4" aria-label="Permalink for definition: S-2.4. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-3" aria-label="Links in this document to definition: S-3">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-3" aria-label="Permalink for definition: S-3. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-s-3-1" title="§ 3.1 Knelpunten uit interviews">§ 3.1 Knelpunten uit interviews</a> <a href="#ref-for-dfn-s-3-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-s-3-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-s-3-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-s-3-5" title="Reference 5">(5)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-3-1" aria-label="Links in this document to definition: S-3.1">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-3-1" aria-label="Permalink for definition: S-3.1. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-3-2" aria-label="Links in this document to definition: S-3.2">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-3-2" aria-label="Permalink for definition: S-3.2. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-3-3" aria-label="Links in this document to definition: S-3.3">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-3-3" aria-label="Permalink for definition: S-3.3. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-3-4" aria-label="Links in this document to definition: S-3.4">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-3-4" aria-label="Permalink for definition: S-3.4. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-3-5" aria-label="Links in this document to definition: S-3.5">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-3-5" aria-label="Permalink for definition: S-3.5. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-3-6" aria-label="Links in this document to definition: S-3.6">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-3-6" aria-label="Permalink for definition: S-3.6. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-3-7" aria-label="Links in this document to definition: S-3.7">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-3-7" aria-label="Permalink for definition: S-3.7. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-4" aria-label="Links in this document to definition: S-4">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-4" aria-label="Permalink for definition: S-4. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-s-4-1" title="§ 3.1 Knelpunten uit interviews">§ 3.1 Knelpunten uit interviews</a> <a href="#ref-for-dfn-s-4-2" title="Reference 2">(2)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-4-1" aria-label="Links in this document to definition: S-4.1">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-4-1" aria-label="Permalink for definition: S-4.1. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-4-2" aria-label="Links in this document to definition: S-4.2">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-4-2" aria-label="Permalink for definition: S-4.2. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-4-3" aria-label="Links in this document to definition: S-4.3">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-4-3" aria-label="Permalink for definition: S-4.3. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-4-4" aria-label="Links in this document to definition: S-4.4">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-4-4" aria-label="Permalink for definition: S-4.4. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-4-5" aria-label="Links in this document to definition: S-4.5">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-4-5" aria-label="Permalink for definition: S-4.5. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-4-6" aria-label="Links in this document to definition: S-4.6">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-4-6" aria-label="Permalink for definition: S-4.6. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-4-7" aria-label="Links in this document to definition: S-4.7">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-4-7" aria-label="Permalink for definition: S-4.7. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-5" aria-label="Links in this document to definition: S-5">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-5" aria-label="Permalink for definition: S-5. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-s-5-1" title="§ 3.1 Knelpunten uit interviews">§ 3.1 Knelpunten uit interviews</a> <a href="#ref-for-dfn-s-5-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-s-5-3" title="Reference 3">(3)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-5-1" aria-label="Links in this document to definition: S-5.1">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-5-1" aria-label="Permalink for definition: S-5.1. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-5-2" aria-label="Links in this document to definition: S-5.2">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-5-2" aria-label="Permalink for definition: S-5.2. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-5-3" aria-label="Links in this document to definition: S-5.3">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-5-3" aria-label="Permalink for definition: S-5.3. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-6" aria-label="Links in this document to definition: S-6">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-6" aria-label="Permalink for definition: S-6. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-s-6-1" title="§ 3.1 Knelpunten uit interviews">§ 3.1 Knelpunten uit interviews</a> <a href="#ref-for-dfn-s-6-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-s-6-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-s-6-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-s-6-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-s-6-6" title="Reference 6">(6)</a> <a href="#ref-for-dfn-s-6-7" title="Reference 7">(7)</a> <a href="#ref-for-dfn-s-6-8" title="Reference 8">(8)</a> <a href="#ref-for-dfn-s-6-9" title="Reference 9">(9)</a> <a href="#ref-for-dfn-s-6-10" title="Reference 10">(10)</a> <a href="#ref-for-dfn-s-6-11" title="Reference 11">(11)</a> <a href="#ref-for-dfn-s-6-12" title="Reference 12">(12)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-6-1" aria-label="Links in this document to definition: S-6.1">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-6-1" aria-label="Permalink for definition: S-6.1. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-6-2" aria-label="Links in this document to definition: S-6.2">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-6-2" aria-label="Permalink for definition: S-6.2. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-6-3" aria-label="Links in this document to definition: S-6.3">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-6-3" aria-label="Permalink for definition: S-6.3. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-6-4" aria-label="Links in this document to definition: S-6.4">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-6-4" aria-label="Permalink for definition: S-6.4. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-6-5" aria-label="Links in this document to definition: S-6.5">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-6-5" aria-label="Permalink for definition: S-6.5. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-7" aria-label="Links in this document to definition: S-7">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-7" aria-label="Permalink for definition: S-7. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-s-7-1" title="§ 3.1 Knelpunten uit interviews">§ 3.1 Knelpunten uit interviews</a> <a href="#ref-for-dfn-s-7-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-s-7-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-s-7-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-s-7-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-s-7-6" title="Reference 6">(6)</a> <a href="#ref-for-dfn-s-7-7" title="Reference 7">(7)</a> <a href="#ref-for-dfn-s-7-8" title="Reference 8">(8)</a> <a href="#ref-for-dfn-s-7-9" title="Reference 9">(9)</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-7-1" aria-label="Links in this document to definition: S-7.1">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-7-1" aria-label="Permalink for definition: S-7.1. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-7-2" aria-label="Links in this document to definition: S-7.2">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-7-2" aria-label="Permalink for definition: S-7.2. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-7-3" aria-label="Links in this document to definition: S-7.3">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-7-3" aria-label="Permalink for definition: S-7.3. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-7-4" aria-label="Links in this document to definition: S-7.4">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-7-4" aria-label="Permalink for definition: S-7.4. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-8" aria-label="Links in this document to definition: S-8">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-8" aria-label="Permalink for definition: S-8. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-8-1" aria-label="Links in this document to definition: S-8.1">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-8-1" aria-label="Permalink for definition: S-8.1. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-s-8-2" aria-label="Links in this document to definition: S-8.2">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-s-8-2" aria-label="Permalink for definition: S-8.2. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-1" aria-label="Links in this document to definition: KP-1">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-1" aria-label="Permalink for definition: KP-1. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-1-1" title="§ E.3 3.1 t/m 3.7 Inschrijving">§ E.3 3.1 t/m 3.7 Inschrijving</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-1-2" title="§ F.3 3.1 t/m 3.7 Inschrijving">§ F.3 3.1 t/m 3.7 Inschrijving</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-2" aria-label="Links in this document to definition: KP-2">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-2" aria-label="Permalink for definition: KP-2. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-2-1" title="§ C.3 2.3 Vaststellen van eisen voor inschrijving">§ C.3 2.3 Vaststellen van eisen voor inschrijving</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-2-2" title="§ D.3 3.1 t/m 3.7 Inschrijving">§ D.3 3.1 t/m 3.7 Inschrijving</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-2-3" title="§ F.3 3.1 t/m 3.7 Inschrijving">§ F.3 3.1 t/m 3.7 Inschrijving</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-3" aria-label="Links in this document to definition: KP-3">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-3" aria-label="Permalink for definition: KP-3. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-3-1" title="§ D.3 3.1 t/m 3.7 Inschrijving">§ D.3 3.1 t/m 3.7 Inschrijving</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-4" aria-label="Links in this document to definition: KP-4">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-4" aria-label="Permalink for definition: KP-4. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-4-1" title="§ C.3 2.3 Vaststellen van eisen voor inschrijving">§ C.3 2.3 Vaststellen van eisen voor inschrijving</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-5" aria-label="Links in this document to definition: KP-5">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-5" aria-label="Permalink for definition: KP-5. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-5-1" title="§ C.3 2.3 Vaststellen van eisen voor inschrijving">§ C.3 2.3 Vaststellen van eisen voor inschrijving</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-6" aria-label="Links in this document to definition: KP-6">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-6" aria-label="Permalink for definition: KP-6. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-6-1" title="§ D.4 4.1 t/m 4.7 Gunning">§ D.4 4.1 t/m 4.7 Gunning</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-6-2" title="§ E.4 4.1 t/m 4.7 Gunning">§ E.4 4.1 t/m 4.7 Gunning</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-6-3" title="§ F.4 4.1 t/m 4.7 Gunning">§ F.4 4.1 t/m 4.7 Gunning</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-7" aria-label="Links in this document to definition: KP-7">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-7" aria-label="Permalink for definition: KP-7. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-7-1" title="§ D.4 4.1 t/m 4.7 Gunning">§ D.4 4.1 t/m 4.7 Gunning</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-7-2" title="§ E.4 4.1 t/m 4.7 Gunning">§ E.4 4.1 t/m 4.7 Gunning</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-8" aria-label="Links in this document to definition: KP-8">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-8" aria-label="Permalink for definition: KP-8. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-8-1" title="§ C.4 4.1 t/m 4.7 Gunning">§ C.4 4.1 t/m 4.7 Gunning</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-9" aria-label="Links in this document to definition: KP-9">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-9" aria-label="Permalink for definition: KP-9. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-9-1" title="§ C.4 4.1 t/m 4.7 Gunning">§ C.4 4.1 t/m 4.7 Gunning</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-10" aria-label="Links in this document to definition: KP-10">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-10" aria-label="Permalink for definition: KP-10. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-10-1" title="§ C.5 5.2 Informatietechnologie mobiliseren o.b.v. mobilisatieplan">§ C.5 5.2 Informatietechnologie mobiliseren o.b.v. mobilisatieplan</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-11" aria-label="Links in this document to definition: KP-11">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-11" aria-label="Permalink for definition: KP-11. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-11-1" title="§ C.5 5.2 Informatietechnologie mobiliseren o.b.v. mobilisatieplan">§ C.5 5.2 Informatietechnologie mobiliseren o.b.v. mobilisatieplan</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-12" aria-label="Links in this document to definition: KP-12">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-12" aria-label="Permalink for definition: KP-12. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-12-1" title="§ C.5 5.2 Informatietechnologie mobiliseren o.b.v. mobilisatieplan">§ C.5 5.2 Informatietechnologie mobiliseren o.b.v. mobilisatieplan</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-13" aria-label="Links in this document to definition: KP-13">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-13" aria-label="Permalink for definition: KP-13. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-13-1" title="§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-14" aria-label="Links in this document to definition: KP-14">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-14" aria-label="Permalink for definition: KP-14. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-14-1" title="§ D.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ D.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-14-2" title="§ E.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ E.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-14-3" title="§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-15" aria-label="Links in this document to definition: KP-15">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-15" aria-label="Permalink for definition: KP-15. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-15-1" title="§ D.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ D.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-16" aria-label="Links in this document to definition: KP-16">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-16" aria-label="Permalink for definition: KP-16. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-16-1" title="§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-17" aria-label="Links in this document to definition: KP-17">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-17" aria-label="Permalink for definition: KP-17. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-17-1" title="§ D.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ D.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-17-2" title="§ E.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ E.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-17-3" title="§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-18" aria-label="Links in this document to definition: KP-18">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-18" aria-label="Permalink for definition: KP-18. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-18-1" title="§ D.4 4.1 t/m 4.7 Gunning">§ D.4 4.1 t/m 4.7 Gunning</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-18-2" title="§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-19" aria-label="Links in this document to definition: KP-19">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-19" aria-label="Permalink for definition: KP-19. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-19-1" title="§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-20" aria-label="Links in this document to definition: KP-20">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-20" aria-label="Permalink for definition: KP-20. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-20-1" title="§ D.4 4.1 t/m 4.7 Gunning">§ D.4 4.1 t/m 4.7 Gunning</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-20-2" title="§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ F.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-21" aria-label="Links in this document to definition: KP-21">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-21" aria-label="Permalink for definition: KP-21. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-21-1" title="§ D.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ D.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-22" aria-label="Links in this document to definition: KP-22">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-22" aria-label="Permalink for definition: KP-22. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-22-1" title="§ E.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ E.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-23" aria-label="Links in this document to definition: KP-23">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-23" aria-label="Permalink for definition: KP-23. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-23-1" title="§ E.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ E.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-24" aria-label="Links in this document to definition: KP-24">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-24" aria-label="Permalink for definition: KP-24. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-24-1" title="§ E.5 6.1 t/m 6.5 Productie van informatie door samenwerking">§ E.5 6.1 t/m 6.5 Productie van informatie door samenwerking</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-25" aria-label="Links in this document to definition: KP-25">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-25" aria-label="Permalink for definition: KP-25. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-25-1" title="§ F.6 7.1 t/m 7.4 Levering van het informatiemodel">§ F.6 7.1 t/m 7.4 Levering van het informatiemodel</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-26" aria-label="Links in this document to definition: KP-26">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-26" aria-label="Permalink for definition: KP-26. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-26-1" title="§ E.6 7.1 t/m 7.4 Levering van het informatiemodel">§ E.6 7.1 t/m 7.4 Levering van het informatiemodel</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-27" aria-label="Links in this document to definition: KP-27">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-27" aria-label="Permalink for definition: KP-27. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-27-1" title="§ D.6 7.1 t/m 7.4 Levering van het informatiemodel">§ D.6 7.1 t/m 7.4 Levering van het informatiemodel</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-28" aria-label="Links in this document to definition: KP-28">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-28" aria-label="Permalink for definition: KP-28. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-28-1" title="§ F.6 7.1 t/m 7.4 Levering van het informatiemodel">§ F.6 7.1 t/m 7.4 Levering van het informatiemodel</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-29" aria-label="Links in this document to definition: KP-29">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-29" aria-label="Permalink for definition: KP-29. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-29-1" title="§ E.6 7.1 t/m 7.4 Levering van het informatiemodel">§ E.6 7.1 t/m 7.4 Levering van het informatiemodel</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-30" aria-label="Links in this document to definition: KP-30">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-30" aria-label="Permalink for definition: KP-30. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-30-1" title="§ D.6 7.1 t/m 7.4 Levering van het informatiemodel">§ D.6 7.1 t/m 7.4 Levering van het informatiemodel</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-30-2" title="§ E.6 7.1 t/m 7.4 Levering van het informatiemodel">§ E.6 7.1 t/m 7.4 Levering van het informatiemodel</a> 
+  </li><li>
+    <a href="#ref-for-dfn-kp-30-3" title="§ F.6 7.1 t/m 7.4 Levering van het informatiemodel">§ F.6 7.1 t/m 7.4 Levering van het informatiemodel</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-31" aria-label="Links in this document to definition: KP-31">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-31" aria-label="Permalink for definition: KP-31. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-31-1" title="§ F.6 7.1 t/m 7.4 Levering van het informatiemodel">§ F.6 7.1 t/m 7.4 Levering van het informatiemodel</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-32" aria-label="Links in this document to definition: KP-32">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-32" aria-label="Permalink for definition: KP-32. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-32-1" title="§ C.6 7.4 Beoordelen en accepteren informatiemodel">§ C.6 7.4 Beoordelen en accepteren informatiemodel</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-kp-33" aria-label="Links in this document to definition: KP-33">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-kp-33" aria-label="Permalink for definition: KP-33. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-kp-33-1" title="§ C.6 7.4 Beoordelen en accepteren informatiemodel">§ C.6 7.4 Beoordelen en accepteren informatiemodel</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-ontologie" aria-label="Links in this document to definition: Ontologie">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-ontologie" aria-label="Permalink for definition: Ontologie. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-ontologie-1" title="§ B. Glossary">§ B. Glossary</a> 
+  </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-otl" aria-label="Links in this document to definition: OTL">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-otl" aria-label="Permalink for definition: OTL. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-rdf" aria-label="Links in this document to definition: RDF">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-rdf" aria-label="Permalink for definition: RDF. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://docs.crow.nl/respec-design/fixup.js"></script></body></html>
