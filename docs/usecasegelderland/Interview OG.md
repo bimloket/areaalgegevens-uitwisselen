@@ -3,40 +3,40 @@
 Datum: 28-09-2021
 
 Aanwezig:
-- OG (3 personen)
-- Rakesh Kalpoe - Arcadis
-- Lucas Verhelst - BIM-Connected
+* OG (3 personen)
+* Rakesh Kalpoe - Arcadis
+* Lucas Verhelst - BIM-Connected
 
 ## Introductie
 
-- Ter voorbereiding heeft OG per processtap de knelpunten benoemd middels de (op de ISO19650 gebaseerde) vragenlijst. 
-- Rakesh licht het plan voor de meeting toe: Eerst wordt de vragenlijst in het algemeen besproken, waarna de benoemde knelpunten in de lijst puntsgewijs worden besproken aan de hand van een paar begeleidende sheets. De presentatie worden tijdens de sessie tevens gebruikt om de kern van het gesprek vast te leggen.
+* Ter voorbereiding heeft OG per processtap de knelpunten benoemd middels de (op de ISO19650 gebaseerde) vragenlijst. 
+* Rakesh licht het plan voor de meeting toe: Eerst wordt de vragenlijst in het algemeen besproken, waarna de benoemde knelpunten in de lijst puntsgewijs worden besproken aan de hand van een paar begeleidende sheets. De presentatie worden tijdens de sessie tevens gebruikt om de kern van het gesprek vast te leggen.
 
 ## Vragenlijst
 
-- Voor OG was het lastig om bij de vragenlijst in te vullen in welke processtap een project-specifieke knelpunt zich voordeed. OG voert namelijk vooral RAW projecten uit, waarin niet alle genoemde stappen relevant zijn.
-- De antwoorden in de vragenlijst zijn van toepassing voor alle projecten die nog moeten worden behandeld.
+* Voor OG was het lastig om bij de vragenlijst in te vullen in welke processtap een project-specifieke knelpunt zich voordeed. OG voert namelijk vooral RAW projecten uit, waarin niet alle genoemde stappen relevant zijn.
+* De antwoorden in de vragenlijst zijn van toepassing voor alle projecten die nog moeten worden behandeld.
 
 ## 2.3 Vaststellen van eisen voor inschrijving
 
 **Welke knelpunten zijn geconstateerd in de projecten?**
 
-- Er werd geen BIM-uitvoeringsplan, Mobilisatieplan en Risicoanalyse uitgevraagd in de projecten. <a>KP-2</a>
-  - OG heeft geen eisen voor o.a. een BIM-uitvoeringsplan en weet niet hoe een dergelijk plan (van de opdrachtnemer) gevalideerd moet worden. Er is wel een ILS beschikbaar die de inhoud van de levering voorschrijft, maar deze schiet nog tekort ten aanzien van het proces om (gezamenlijk) tot een valide levering te komen. 
-  - OG mist hierdoor o.a. een planning met wat wanneer geleverd wordt in de uitvragen die zij nu doet. Dit leidt tot onverwacht werk in de organisatie, zoals de verwerking of beoordeling van grote hoeveelheden data en documenten.
-- Er waren weinig mogelijkheden om invloed uit te oefenen op de informatiestroom vanuit opdrachtnemer. De invulling van het informatiemanagement werd hierdoor afhankelijk van de waarde die de hoofdaannemer hier aan hechtte. <a>KP-4</a>
-  - Het was aan de aannemer wanneer en hoe de leveringen gedaan werden. Dat ging bij het project P1 goed, bij P2 en P3 ging het minder goed.
-  - Bij het project P3 kwam de levering pas helemaal aan het eind, de documenten zijn later los geleverd. Aan het eind van een project zijn betrokkenen vaak weer naar andere projecten toe en blijkt het lastig om data nog te laten verbeteren.
-  - OG ziet dat goed informatiemanagement steeds belangrijker wordt in de projecten en wil hier sterker de meerwaarde van laten zien aan de aannemers.
-  - Het uitvragen van BIM-uitvoeringsplannen is lastig in RAW-projecten, omdat het lastig te vatten is in concrete EMVI-criteria met bonus malus. Achteraf kan vaak pas beoordeeld worden of het plan goed uitgevoerd is.
-- Het opstellen, het communiceren en valideren van een eenduidige mappenstructuur voor documentleveringen was lastig. Er wordt een mappenstructuur vereist, waarin documenten per asset, per soort worden aangeleverd. <a>KP-5</a>
-  - OG heeft de mappenstructuur intern met haar beheerders opgezet. OG krijgt in de praktijk veel vragen over welk document in welke categorie moet vallen. Dit is lastig volledig te standaardiseren omdat verschillende organisaties hun eigen documentsoorten gebruiken. Er zijn hoogover standaarden beschikbaar zoals de NEN 2084, maar de structuur van OG is veel gedetailleerder dan dat.
+* Er werd geen BIM-uitvoeringsplan, Mobilisatieplan en Risicoanalyse uitgevraagd in de projecten. <a>KP-2</a>
+  * OG heeft geen eisen voor o.a. een BIM-uitvoeringsplan en weet niet hoe een dergelijk plan (van de opdrachtnemer) gevalideerd moet worden. Er is wel een ILS beschikbaar die de inhoud van de levering voorschrijft, maar deze schiet nog tekort ten aanzien van het proces om (gezamenlijk) tot een valide levering te komen. 
+  * OG mist hierdoor o.a. een planning met wat wanneer geleverd wordt in de uitvragen die zij nu doet. Dit leidt tot onverwacht werk in de organisatie, zoals de verwerking of beoordeling van grote hoeveelheden data en documenten.
+* Er waren weinig mogelijkheden om invloed uit te oefenen op de informatiestroom vanuit opdrachtnemer. De invulling van het informatiemanagement werd hierdoor afhankelijk van de waarde die de hoofdaannemer hier aan hechtte. <a>KP-4</a>
+  * Het was aan de aannemer wanneer en hoe de leveringen gedaan werden. Dat ging bij het project P1 goed, bij P2 en P3 ging het minder goed.
+  * Bij het project P3 kwam de levering pas helemaal aan het eind, de documenten zijn later los geleverd. Aan het eind van een project zijn betrokkenen vaak weer naar andere projecten toe en blijkt het lastig om data nog te laten verbeteren.
+  * OG ziet dat goed informatiemanagement steeds belangrijker wordt in de projecten en wil hier sterker de meerwaarde van laten zien aan de aannemers.
+  * Het uitvragen van BIM-uitvoeringsplannen is lastig in RAW-projecten, omdat het lastig te vatten is in concrete EMVI-criteria met bonus malus. Achteraf kan vaak pas beoordeeld worden of het plan goed uitgevoerd is.
+* Het opstellen, het communiceren en valideren van een eenduidige mappenstructuur voor documentleveringen was lastig. Er wordt een mappenstructuur vereist, waarin documenten per asset, per soort worden aangeleverd. <a>KP-5</a>
+  * OG heeft de mappenstructuur intern met haar beheerders opgezet. OG krijgt in de praktijk veel vragen over welk document in welke categorie moet vallen. Dit is lastig volledig te standaardiseren omdat verschillende organisaties hun eigen documentsoorten gebruiken. Er zijn hoogover standaarden beschikbaar zoals de NEN 2084, maar de structuur van OG is veel gedetailleerder dan dat.
 
 **Welke behoefte is er voor landelijke afspraken?**
-- Momenteel wordt er door het CROW aandacht besteedt om de ILS met de VSE/VSP te verweven. OG heeft eenzelfde behoefte om de ILS te verweven met RAW-contracten.   
-- OG heeft de behoefte om de juridische staat van ILS’en gezamenlijk als opdrachtgevers vast te stellen. Op deze manier is de opdrachtgever meer in staat om invloed uit te oefenen op de informatiestromen (o.a. middels toebedelen van EMVI-scores, boetes) binnen UAV-GC projecten. 
-- Er is een behoefte om te beoordelen stukken voor de inschrijving (o.a. het BIM uitvoeringsplan) meer uniform uit te vragen. 
-  - Het is bekend dat de grotere ingenieursbureau’s templates hebben voor bijv. een BIM uitvoeringsplan. Bij standaardisatie moet wel ruimte zijn voor project- of organisatiespecifieke afwijkingen.
+* Momenteel wordt er door het CROW aandacht besteedt om de ILS met de VSE/VSP te verweven. OG heeft eenzelfde behoefte om de ILS te verweven met RAW-contracten.   
+* OG heeft de behoefte om de juridische staat van ILS’en gezamenlijk als opdrachtgevers vast te stellen. Op deze manier is de opdrachtgever meer in staat om invloed uit te oefenen op de informatiestromen (o.a. middels toebedelen van EMVI-scores, boetes) binnen UAV-GC projecten. 
+* Er is een behoefte om te beoordelen stukken voor de inschrijving (o.a. het BIM uitvoeringsplan) meer uniform uit te vragen. 
+  * Het is bekend dat de grotere ingenieursbureau’s templates hebben voor bijv. een BIM uitvoeringsplan. Bij standaardisatie moet wel ruimte zijn voor project- of organisatiespecifieke afwijkingen.
 
 ## 4.1 t/m 4.7 Gunning
 
